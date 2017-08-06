@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="lib/jquery-mobile/css/jquery.mobile-1.4.0.min.css" />
+        <script type="text/javascript" src="lib/jquery-mobile/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="lib/jquery-mobile-router/js/jquery.mobile.router.min.js"></script>
+        <script type="text/javascript" src="lib/jquery-mobile/js/jquery.mobile-1.4.0.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="css/jqm-icon-pack-fa.css">
+        <title>Inter View</title>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="phonegap.js"></script>
+		<script type="text/javascript" src="js/functions.js"></script>
+    </head>
+    <body onload="employerprofileView()">
+         <div id="signup_page" data-theme="b" data-role="page" style="background: white;">
+         <div id="header_home" data-position="fixed" data-tap-toggle="false" data-role="header">
+
+            <h1>Employers Profile</h1>
+            <a id="_home" href="#myPanel" class="ui-btn-left" data-icon="bars" data-iconpos="notext">Menu</a>
+            <input type="hidden" id="edt_mail" />
+        </div>
+		  <div data-role="panel" id="myPanel" data-display="push" data-position="left" data-theme="b" style="background:#0ab9b3;position:fixed;">
+            <center><a href="#"><img src="img/profile.png"/></a>
+			<h5>John</h5></center>
+			<br/><br/>
+            <ul data-role="listview" data-inset="false">
+
+                <li><a id="go_logout" href="seeker.html">Seeker</a></li>
+				<li><a id="go_logout" href="employer.html">Employer</a></li>
+				<li><a id="go_logout" href="jobsearchresult.html">Job Search Result</a></li>
+				<!--li><a id="go_logout" href="jobseekerprofile.html">Job Seeker Profile</a></li>
+				<li><a id="go_logout" href="employerprofile.html">Employeer Profile</a></li>
+				<li><a id="go_logout" href="jobfeed.html">Job List</a></li--->
+				<li><a id="go_logout" href="about.html">View Us</a></li>
+				<li><a id="go_logout" href="#">Contact Us</a></li>
+				<li><a id="go_logout" href="index.html">Logout</a></li>
+            </ul>
+        </div>
+          <div id="main_signup" data-role="content">
+              
+				
+				
+				<div class="ui-grid-b">
+					<div class="ui-block-a" style="width:30%"><div class="ui-bar ui-bar-a">
+						
+							<img id="companylogo" style="border-radius: 10px;  width: 110%; height: 80px;"/>
+						
+					</div></div>
+					
+					<div class="ui-block-b" style="width:70%"><div class="ui-bar ui-bar-a">
+						
+							<h4 id="companyname"> </h4>
+					  <p style="font-size: 11px;" id="companyposition"> <p/>
+					  <img  src="img/location.png"/> 
+					  <span style="font-size: 9px;color: gray;"  id="companylocation"></span>
+					  <p id="companycontact" ></p>
+						<p id="companyemail"></p>
+						
+					</div></div>
+			</div>
+		
+		<hr/>
+				
+			
+
+			
+			<!---div class="ui-grid-b">
+					<div class="ui-block-a"><div class="ui-bar ui-bar-a">
+						
+							<img src="img/Facebook.png"> Facebook
+						
+					</div></div>
+					
+					<div class="ui-block-b"><div class="ui-bar ui-bar-a">
+						
+							<img src="img/twitter.png"> Twitter
+						
+					</div></div>
+					
+					<div class="ui-block-c"><div class="ui-bar ui-bar-a">
+						
+							<img src="img/google.png"> Google
+						
+					</div></div>
+			</div--->
+		
+			<br/>		
+					
+			<div class="panel panel-default" style="background:#0ab9b3">
+				<div class="panel-body">
+					<h4>About Us</h4>
+					<textarea id="about_us" class="form-control" rows="3" style="color:#000" placeholder="Description" readonly></textarea>
+				</div>
+			</div>	
+			
+			<br/>		
+					
+			<div class="panel panel-default" style="background:#0ab9b3">
+				<div class="panel-body">
+					<h4>Job Opportunity</h4>
+					<input id="jobTitle1" type="text" class="form-control" style="background:#fff;color:#000" placeholder="Title 1" readonly>
+					<input id="job_salary1" type="number" class="form-control" style="background:#fff;color:#000" placeholder="Salary" readonly>
+					<textarea id="job_description1" class="form-control" rows="3" style="color:#000" placeholder="Description" readonly></textarea>
+					
+					<hr/>
+					
+					<input id="jobTitle2" type="text" class="form-control" style="background:#fff;color:#000" placeholder="Title 2" readonly>
+					<input id="job_salary2" type="number" class="form-control" style="background:#fff;color:#000" placeholder="Salary" readonly>
+					<textarea id="job_description2" class="form-control" rows="3" style="color:#000" placeholder="Description" readonly></textarea>
+					
+					<hr/>
+					
+					<input id="jobTitle3" type="text" class="form-control" style="background:#fff;color:#000" placeholder="Title 3" readonly>
+					<input id="job_salary3" type="number" class="form-control" style="background:#fff;color:#000" placeholder="Salary" readonly>
+					<textarea id="job_description3" class="form-control" rows="3" style="color:#000" placeholder="Description" readonly></textarea>
+					
+					<hr/>
+					
+					<input id="jobTitle4" type="text" class="form-control" style="background:#fff;color:#000" placeholder="Title 4" readonly>
+					<input id="job_salary4" type="number" class="form-control" style="background:#fff;color:#000" placeholder="Salary" readonly>
+					<textarea id="job_description4" class="form-control" rows="3" style="color:#000" placeholder="Description" readonly></textarea>
+				</div>
+			</div>	
+					
+			<div class="panel panel-default" style="background:#0ab9b3">
+				<div class="panel-body">
+					<h4>Social Media Links</h4>
+					<input id="fblink" type="text" class="form-control" style="background:#fff;color:#000" placeholder="Facebook" readonly>
+					<input id="twitterlink" type="text" class="form-control" style="background:#fff;color:#000" placeholder="Twitter" readonly>
+					<input id="googlelink" type="text" class="form-control" style="background:#fff;color:#000" placeholder="Google+" readonly>
+				</div>
+			</div>				
+
+			<a onclick="" style="text-decoration:none;"><button data-transition="pop" type="submit" id="logon" value="Login" style="background:#ed8548;">Save </button></a>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		<!---div>
+				<div>	
+					<img src="img/logobg.png" style="width:48%; height:100px; float: left;"/> 
+					
+				</div>	 
+				<div style="width:48%; float:right; margin-top: -10px;">			
+					<h4>The Next Web</h4>
+					  <p style="font-size: 11px;" >Blogging and Internet News Company<p/>
+					  <img src="img/location.png" style="width:10%; height:20px;"/> 
+					  <span style="font-size: 9px;color: gray;" >Newyork City, United States </span>
+					 
+				</div>
+		 </div>
+		 
+		<div style="margin-top: 115px; margin-bottom: 250px; font-size: 12px;" >
+				<div style="width:40%;float:left; color: gray;">	
+					<p style="color:deepskyblue;"><img src="img/twitter.png" width="10%" height="15px" > Twitter</p>
+					<p><img src="img/facebook.png" width="10%" height="15px" > Facebook</p>
+					<p><img src="img/google.png" width="10%" height="15px" > Google+</p>
+					<p><img src="img/link.png" width="10%" height="15px" > http://www.interviewme.com</p>
+						
+			</div>	
+			<div style="width:50%;float:right;">
+			<p ><button style="width: 75%;border-radius: 60px; background: gray; border: none; font-size: 12px;" >Apply for a job</button></p>	
+			<p ><button style="width: 50%;border-radius: 60px; background: deepskyblue; border: none; font-size: 12px;" >Follow</button></p>	
+			</div>
+		 </div>
+		 
+		 <div>
+			<div>
+				<h4>Company Description</h4>
+				<div style="color: gray;">
+					<span > content goes here content goes here content goes here content goes here content goes here content goes here content goes here content goes here content goes here content goes here content goes here content goes here content goes here content goes here .</span>
+				</div>
+			</div>
+		 </div>
+		 <hr>
+		 
+		<div style="margin-top:30px; " >
+				<div style="width:40%;float:left; text-align: center;">	
+					<p style="color: gray; font-size: 12px" > FOLLOWERS</p>
+					<p style="font-size: 18px">31401</p>
+					<p style="color: gray; font-size: 12px">MEMBERS</p>
+					<p style="font-size: 18px">21</p>
+						
+			</div>	
+			<div style="width:50%;float:right;">
+			<p style="color: gray; font-size: 12px;text-align: center;">JOBS</button></p>	
+				<div class="badgeHolder">
+				<p style="color: gray; background: transparent; border-color: gray;" class="btn badge badge-primary badge-btn">Marketing Manager<p style="background:deepskyblue;" class="badge badge-success badge-xs">5</p></p> 
+				
+                <div class="badgeHolder">
+				<p style="color: gray; background: transparent; border-color: gray;" class="btn badge badge-primary badge-btn">Wordpress Developer<p style="background:deepskyblue;" class="badge badge-success badge-xs">2</p></p>
+
+				<p style="color: gray; background: transparent; border-color: gray;" class="btn badge badge-primary badge-btn">UI/UX Developer<p style="background:red;" class="badge badge-success badge-xs">1</p></p>
+				</div>
+			</div>
+		 </div>
+			</div--->		
+					
+          </div>
+        </div>
+    </body>
+</html>

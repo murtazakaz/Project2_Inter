@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="lib/jquery-mobile/css/jquery.mobile-1.4.0.min.css" />
+        <script type="text/javascript" src="lib/jquery-mobile/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="lib/jquery-mobile-router/js/jquery.mobile.router.min.js"></script>
+        <script type="text/javascript" src="lib/jquery-mobile/js/jquery.mobile-1.4.0.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="css/jqm-icon-pack-fa.css">
+        <title>Interview</title>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="phonegap.js"></script>
+    </head>
+    <body>
+         <div id="signup_page" data-theme="b" data-role="page">
+         <div id="header_home" data-position="fixed" data-tap-toggle="false" data-role="header">
+
+            <h1>View Us</h1>
+            <a id="_home" href="#myPanel" class="ui-btn-left" data-icon="bars" data-iconpos="notext">Menu</a>
+            <input type="hidden" id="edt_mail" />
+        </div>
+		  <div data-role="panel" id="myPanel" data-display="push" data-position="left" data-theme="b" style="background:#0ab9b3;position:fixed;">
+            <center><a href="#"><img src="img/profile.png"/></a>
+			<h5>John</h5></center>
+			<br/><br/>
+            <ul data-role="listview" data-inset="false">
+
+                <li><a id="go_logout" href="seeker.html">Seeker</a></li>
+				<li><a id="go_logout" href="employer.html">Employer</a></li>
+				<li><a id="go_logout" href="jobsearchresult.html">Job Search Result</a></li>
+				<li><a id="go_logout" href="jobseekerprofile.html">Job Seeker Profile</a></li>
+				<li><a id="go_logout" href="employerprofile.html">Employeer Profile</a></li>
+				<li><a id="go_logout" href="about.html">View Us</a></li>
+				<li><a id="go_logout" href="#">Contact Us</a></li>
+				<li><a id="go_logout" href="index.html">Logout</a></li>
+            </ul>
+        </div>
+          <div id="main_signup" data-role="content">
+              <img src="img/about.png" style="width:100%"/><br/><br/>
+			  <div class="panel panel-default">
+				<div class="panel-body">
+					<h4 style="color: #07B9B3;">About Us</h4>
+					<p>At InterViewMe, our mission is to change the landscape of the staffing industry by using interactive applications. Most job seekers spend an overwhelming amount of time filling out online applications, which often leads to a dead end. Most employers spend an overwhelming amount of time filtering through online applications, which is very time consuming and costly.</p>
+
+<p>At InterViewMe, we empower job seekers and employers by giving them more control over the job search/staffing process. We offer a free, easy, and interactive way to connect online..<p>
+
+<h4  style="color: #07B9B3;">How InterViewMe Works: Job Seekers</h4>
+<p>Job seekers are able to highlight their unique personality by creating a custom professional profile. In this profile, job seekers can upload a pre-recorded interview video and their resume. Approved InterViewMe employers can then view the information. Job seekers can also send their profile via email or LinkedIn.</p>
+
+<h4  style="color: #07B9B3;">How InterViewMe Works: Employers</h4>
+<p>Approved InterViewMe employers are able to search our extensive database to view relevant profiles. Initial interviews can be executed by simply pushing "Review" on a profile. This will cut the recruiting process in half.no phone call or email message is required!</p>
+
+<p>Approved InterViewMe employers can also create their own job posting on InterViewMe. This would automatically filter candidates that are interested in the specific position. Employers can also reach out to candidates and request a custom video interview.</p>
+
+<p>InterViewMe is here to help job seekers and employers connect. The job search/staffing process can be easy with the right InterView.</p>
+				</div>
+			  </div>
+			  
+			  <div class="panel panel-default">
+				<div class="panel-body">
+					<h4 style="color: #ed8448;">Company Info</h4>
+					<p>Compnay Name: Interview Me</p>
+<p>Address: London, United Kingdom</p>
+<p>Phone: +1234 567 8910</p>
+<p>Email: info@interviewme.com</p>
+<p>Website: www.interviewme.com</p>
+
+<img src="img/fb.png"/>
+<img src="img/tw.png"/>
+<img src="img/g.png"/>
+<img src="img/in.png"/>
+				</div>
+			  </div>	
+          </div>
+          
+		  
+		  
+        </div>
+    </body>
+</html>

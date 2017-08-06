@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="lib/jquery-mobile/css/jquery.mobile-1.4.0.min.css" />
+        <script type="text/javascript" src="lib/jquery-mobile/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="lib/jquery-mobile-router/js/jquery.mobile.router.min.js"></script>
+        <script type="text/javascript" src="lib/jquery-mobile/js/jquery.mobile-1.4.0.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="css/jqm-icon-pack-fa.css">
+        <title>Inter View</title>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="phonegap.js"></script>
+			<script type="text/javascript" src="js/functions.js"></script>
+		<style>
+         #item {
+    position:relative;
+    padding-top:20px;
+    display:inline-block;
+	width: 30%;
+}
+#notify-badge{
+    position: absolute;
+       right: 12px;
+    top:10px;
+    
+    text-align: center;
+    border-radius: 30px 30px 30px 30px;
+    color:white;
+    padding:5px 10px;
+    font-size:10px;
+	 width: 30%;
+
+}
+input[type=text]:readonly {
+    background: #fff;
+}
+		
+		</style>
+    </head>
+    <body onload="seekerprofileView();">
+         <div id="signup_page" data-theme="b" data-role="page" style="background: white;background-size:cover">
+         <div id="header_home" data-position="fixed" data-tap-toggle="false" data-role="header">
+
+            <h1>Job Seeker Profile</h1>
+            <a id="_home" href="#myPanel" class="ui-btn-left" data-icon="bars" data-iconpos="notext">Menu</a>
+            <input type="hidden" id="edt_mail" />
+        </div>
+		  <div data-role="panel" id="myPanel" data-display="push" data-position="left" data-theme="b" style="background:#0ab9b3;position:fixed;">
+            <center><a href="#"><img src="img/profile.png"/></a>
+			<h5>John</h5></center>
+			<br/><br/>
+            <ul data-role="listview" data-inset="false">
+
+                <li><a id="go_logout" href="seeker.html">Seeker</a></li>
+				<li><a id="go_logout" href="employer.html">Employer</a></li>
+				<li><a id="go_logout" href="jobsearchresult.html">Job Search Result</a></li>
+				<!--li><a id="go_logout" href="jobseekerprofile.html">Job Seeker Profile</a></li>
+				<li><a id="go_logout" href="employerprofile.html">Employeer Profile</a></li>
+				<li><a id="go_logout" href="jobfeed.html">Job List</a></li--->
+				<li><a id="go_logout" href="about.html">View Us</a></li>
+				<li><a id="go_logout" href="#">Contact Us</a></li>
+				<li><a id="go_logout" href="index.html">Logout</a></li>
+            </ul>
+        </div>
+          <div id="main_signup" data-role="content">
+              
+				<div class="ui-grid-b">
+					<div class="ui-block-a" style="width:30%"><div class="ui-bar ui-bar-a">
+						
+							<img id="profilePic"  style="border-radius: 5px;  width: 110%; height: 80px;}"/>
+						
+					</div></div>
+					
+					<div class="ui-block-b" style="width:70%"><div class="ui-bar ui-bar-a">
+      
+				   <!-- <h4 id="username">Jamie Dean</h4> -->
+				   <!-- <p style="font-size: 11px;" id="jobTitle" >Graphic - and Webdesigner at Creative Arts<p/> -->
+				   <!-- <img  src="img/location.png" />  -->
+				   <!-- <span id="location" style="font-size: 9px;color: gray;" >Newyork City, United States </span> -->
+				  <!-- <p id="contact">Phone : 1325469687</p> -->
+				  <!-- <p id="email" >Email : email@address.com</p> -->
+				  
+				   <h4 id="username"></h4>
+				   <p style="font-size: 11px;" id="jobTitle" ><p/>
+				   <img  src="img/location.png" /> 
+				   <span id="location" style="font-size: 9px;color: gray;" ></span>
+				  <p id="contact"></p>
+				  <p id="email" ></p>
+      
+				</div></div>
+			</div>
+		
+		<hr/>
+				
+			<a href="#" style="text-decoration:none;"><button data-transition="pop" type="submit" id="logon" value="Login" style="background:#ed8548;">Video </button></a>
+
+				<video width="100%" controls="" style="background:#000">
+                    <source src="mov_bbb.mp4" type="video/mp4">
+                    <source src="mov_bbb.ogg" type="video/ogg">
+                </video>		
+
+				<input type="text" class="form-control" style="background:#fff;color:#000;" placeholder="Youtube Link Here">
+				
+			<!---div class="ui-grid-b">
+					<div class="ui-block-a"><div class="ui-bar ui-bar-a">
+						
+							<img src="img/Facebook.png"> Facebook
+						
+					</div></div>
+					
+					<div class="ui-block-b"><div class="ui-bar ui-bar-a">
+						
+							<img src="img/twitter.png"> Twitter
+						
+					</div></div>
+					
+					<div class="ui-block-c"><div class="ui-bar ui-bar-a">
+						
+							<img src="img/google.png"> Google
+						
+					</div></div>
+			</div--->
+		
+			<br/>		
+					
+			<div class="panel panel-default" style="background:#0ab9b3">
+				<div class="panel-body">
+					<h4>Career Objective</h4>
+					<input id="career_objective" style="color:#000; background-color: white;" placeholder="Description" readonly></input>
+				</div>
+			</div>	
+			
+			<br/>		
+					
+			<div class="panel panel-default" style="background:#0ab9b3">
+				<div class="panel-body">
+					<h4>Work History</h4>
+					<input type="text" class="form-control" id="jobTitle1" style="background:#fff ; color:#000; " placeholder="Title1"readonly>
+					<input type="text" class="form-control" id="company_name1" style="background:#fff;color:#000" placeholder="Company Name 1" readonly>
+					<input type="text" class="form-control" id="jobStartDate1" style="background:#fff;color:#000" placeholder="2008-11-21" readonly>
+					<input type="text" class="form-control" id="jobEndDate1" style="background:#fff;color:#000" placeholder="2008-11-21" readonly>
+					<input class="form-control" id="jobDescription1" rows="3" style="color:#000" placeholder="Description"readonly></input>
+					
+					<hr/>
+					
+					<input type="text" class="form-control" id="jobTitle2" style="background:#fff;color:#000" placeholder="Title 2" readonly>
+					<input type="text" class="form-control" id="company_name2" style="background:#fff;color:#000" placeholder="Company Name 2" readonly>
+					<input type="text" class="form-control" id="jobStartDate2" style="background:#fff;color:#000" placeholder="2008-11-21" readonly>
+					<input type="text" class="form-control" id="jobEndDate2" style="background:#fff;color:#000" placeholder="2008-11-21" readonly>
+					<input class="form-control" rows="3" id="jobDescription2" style="color:#000" placeholder="Description"readonly></input>
+					
+					<hr/>
+					
+					<input type="text" class="form-control" id="jobTitle3" style="background:#fff;color:#000" placeholder="Title 3"readonly>
+					<input type="text" class="form-control" id="company_name3" style="background:#fff;color:#000" placeholder="Company Name 3"readonly>
+					<input type="text" class="form-control" id="jobStartDate3" style="background:#fff;color:#000" placeholder="2008-11-21" readonly>
+					<input type="text" class="form-control" id="jobEndDate3" style="background:#fff;color:#000" placeholder="2008-11-21" readonly>
+					<input class="form-control" rows="3" id="jobDescription3" style="color:#000" placeholder="Description"readonly></input>
+					
+					<hr/>
+					
+					<input type="text" class="form-control" id="jobTitle4" style="background:#fff;color:#000" placeholder="Title 4"readonly>
+					<input type="text" class="form-control" id="company_name4" style="background:#fff;color:#000" placeholder="Company Name 4"readonly>
+					<input type="text" class="form-control" id="jobStartDate4" style="background:#fff;color:#000" placeholder="2008-11-21"readonly >
+					<input type="text" class="form-control" id="jobEndDate4" style="background:#fff;color:#000" placeholder="2008-11-21" readonly>
+					<input class="form-control" rows="3" id="jobDescription4" style="color:#000" placeholder="Description"readonly></input>
+				</div>
+			</div>
+
+			<div class="panel panel-default" style="background:#0ab9b3">
+				<div class="panel-body">
+					<h4>Education Background</h4>
+					<input type="text" class="form-control" id="educationTitle1" style="background:#fff;color:#000" placeholder="BA @ Texas A&M-Commerce"readonly>
+					<input type="text" class="form-control" id="school_name1" style="background:#fff;color:#000" placeholder="Institute Name"readonly>
+					<input class="form-control" rows="3" id="educationDescription1" style="color:#000" placeholder="Description"readonly></input>
+					
+					<hr/>
+					
+					<input type="text" class="form-control" id="educationTitle2" style="background:#fff;color:#000" placeholder="Title 2"readonly>
+					<input type="text" class="form-control" id="school_name2" style="background:#fff;color:#000" placeholder="Institute Name"readonly>
+					<input class="form-control" id="educationDescription2" rows="3" style="color:#000" placeholder="Description"readonly></input>
+					
+					<hr/>
+					
+					<input type="text" class="form-control" id="educationTitle3" style="background:#fff;color:#000" placeholder="Title 3"readonly>
+					<input type="text" class="form-control" id="school_name3" style="background:#fff;color:#000" placeholder="Institute Name"readonly>
+					<input class="form-control" rows="3" id="educationDescription3" style="color:#000" placeholder="Description"readonly></input>
+					
+					<hr/>
+					
+					
+				</div>
+			</div>
+					
+			<div class="panel panel-default" style="background:#0ab9b3">
+				<div class="panel-body">
+					<h4>Special Qualification</h4>
+					<input type="text" class="form-control" id="specialQualification1" style="background:#fff;color:#000" placeholder="5 years+ experience designing and building products In the Design & IT industry."readonly>
+					<input type="text" class="form-control" id="specialQualification2" style="background:#fff;color:#000" placeholder="Passion for people-centered design, solid intuition."readonly>
+					<input type="text" class="form-control" id="specialQualification3"  style="background:#fff;color:#000" placeholder="Skilled at any Kind Design Tools."readonly>
+					<input type="text" class="form-control" id="specialQualification4" style="background:#fff;color:#000" placeholder="Hard Worker & Quick Lerner."readonly>
+				</div>
+			</div>	
+
+			<div class="panel panel-default" style="background:#0ab9b3">
+				<div class="panel-body">
+					<h4>References</h4>
+					<input type="text" class="form-control" id="reference1" style="background:#fff;color:#000" placeholder=""readonly>
+					<input type="text" class="form-control" id="reference2" style="background:#fff;color:#000" placeholder=""readonly>
+					<input type="text" class="form-control" id="reference3" style="background:#fff;color:#000" placeholder=""readonly>
+				</div>
+			</div>	
+
+			<a onclick="jobsearchresult()" style="text-decoration:none;"><button data-transition="pop" type="submit" id="logon" value="Login" style="background:#ed8548;">Next</button></a>	
+				
+						
+		
+          </div>
+        </div>
+    </body>
+</html>
