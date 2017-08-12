@@ -14,13 +14,35 @@
         <title>Inter View</title>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="phonegap.js"></script>
-		<script type="text/javascript" src="js/functions.js"></script>
-    </head>
-    <body>
-         <div id="signup_page" data-theme="b" data-role="page">
-         <div id="header_home" data-position="fixed" data-tap-toggle="false" data-role="header">
+				<script type="text/javascript" src="js/functions.js"></script>
+		<style>
+         #item {
+    position:relative;
+    padding-top:20px;
+    display:inline-block;
+	width: 30%;
+}
+#notify-badge{
+    position: absolute;
+       right: 12px;
+    top:10px;
+    
+    text-align: center;
+    border-radius: 30px 30px 30px 30px;
+    color:white;
+    padding:5px 10px;
+    font-size:10px;
+	 width: 30%;
 
-            <h1>Job Seeker Profile</h1>
+}
+		
+		</style>
+    </head>
+    <body onload="display_all_employers()">
+         <div id="signup_page" data-theme="b" data-role="page" style="background: white;">
+         <div id="header_home" data-position="fixed" data-tap-toggle="false" data-role="header" style="background:white; color: black;">
+
+            <h1>Employer Search Result</h1>
             <a id="_home" href="#myPanel" class="ui-btn-left" data-icon="bars" data-iconpos="notext">Menu</a>
             <input type="hidden" id="edt_mail" />
         </div>
@@ -33,40 +55,45 @@
                 <li><a id="go_logout" href="seeker.html">Seeker</a></li>
 				<li><a id="go_logout" href="employer.html">Employer</a></li>
 				<li><a id="go_logout" href="jobsearchresult.html">Job Search Result</a></li>
-				<!--li><a id="go_logout" href="jobseekerprofile.html">Job Seeker Profile</a></li>
+				<li><a id="go_logout" href="jobseekerprofile.html">Job Seeker Profile</a></li>
 				<li><a id="go_logout" href="employerprofile.html">Employeer Profile</a></li>
-				<li><a id="go_logout" href="jobfeed.html">Job List</a></li--->
+				<li><a id="go_logout" href="jobfeed.html">Job List</a></li>
 				<li><a id="go_logout" href="about.html">View Us</a></li>
 				<li><a id="go_logout" href="#">Contact Us</a></li>
 				<li><a id="go_logout" href="index.html">Logout</a></li>
             </ul>
         </div>
-          <div id="main_signup" data-role="content">
-              <div class="panel panel-default">
+              
+		<div class="panel panel-default">
 				<div class="panel-body">
-					<!-- <img src="img/seekerbanner.png" style="width:100%"/> -->
+					<div class="ui-grid-b">
+					<div id="employerProfileView">
+					<div class="ui-block-a" style="width:25%"><div class="ui-bar ui-bar-a">
+						<div>
+							<img src="img/location.png" id="profilePic"  style="border-radius: 5px;  width: 70%; height: 60px;}">
+                         </div>							
+						
+					</div></div>
 					
-					<!-- <hr/> -->
+					<div class="ui-block-b" style="width:50%"><div class="ui-bar ui-bar-a">
+						
+							<p style="color: black; font-size: 12px;text-align: left;">Front-end Developer</p>	
+							<img src="img/location.png"/> 
+							<span style="font-size: 9px;color: gray;text-align: left;" >Newyork City, United States </span>
+						
+					</div></div>
 					
-					<center><h4>Upload Image</h4></center>
-					<br>
-					<div>
-	<center><img id="userimg" src="img/profile.png" style=" border-radius: 50%;  height: 100px; width: 40%;" /></center>
-	<br><br>
- <center><a data-role="button" onClick="uploadFromGallery()">Upload from Gallery</a></center>
- 
-	 </div>
- <div> 
- <center> <label>OR</label></center>
-	<center><a data-role="button" onClick="takephoto()">capture image</a></center>
-
-  </div>
-			<br><br>	
-					<a onclick="register()" style="text-decoration:none;"><button data-transition="pop" type="submit" id="logon" value="Login" style="background:#0ab9b3;">Register</button></a>
+					<div class="ui-block-c" style="width:25%"><div class="ui-bar ui-bar-a">
+						
+							<button style="border-radius: 60px; background: deepskyblue;color:#fff; border: none; font-size: 12px;" >Details</button>
+						
+					</div></div>
+					</div>
 					
-				</div>
-			  </div>
-          </div>
-        </div>
+					
+				</div><!-- /grid-b -->
+		  </div>
+		  
+		
     </body>
 </html>

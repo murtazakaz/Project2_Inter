@@ -209,10 +209,13 @@ function uploadFromGallery() {
     // Retrieve image file location from specified source
     navigator.camera.getPicture(uploadPhoto,
                                 function(message) { alert('get picture failed'); },
-                                { quality: 40, 
+                                { 
+								 quality: 40, 
 								correctOrientation : true,
                                 destinationType: navigator.camera.DestinationType.FILE_URI,
-                                sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY }
+                                sourceType:navigator.camera.PictureSourceType.PHOTOLIBRARY 
+								
+								}
                                 );
 
 }
@@ -230,12 +233,11 @@ function uploadPhoto(imageURI) {
     var newchar = '1';
      mystring = mystring.split('?').join(newchar);
 	options.fileName=mystring;
-    options.mimeType="image/jpeg";
+    options.mimeType= "image/jpeg";
     imagesrc = imageURI;
 	document.getElementById("userimg").src = imagesrc;
 	// alert("save "+imagesrc);
 	 var email =getParameterByName('email');
-	
     var params = new Object();
     options.params = params;
 	 options.chunkedMode = false;
@@ -289,7 +291,7 @@ function signin(){
 					var str= data;	
 			if(data.Status == "success"){
 			// alert("Welcome, "+ str.username);
-			   window.location.href = "jobsearchresult.html?user="+str.id+"&email="+email+"&fbpic="+str.image+"";
+			   window.location.href = "employerSearchView.html?user="+str.id+"&email="+email+"&fbpic="+str.image+"&loginas="+loginas+"";
 			}
 			else{
 				alert("Email or Password Incorrect : Please Retry");
@@ -311,7 +313,7 @@ function signin(){
 					var str= data;	
 			if(data.Status == "success"){
 			// alert("Welcome, "+ str.username);
-			    window.location.href = "jobsearchresult.html?user="+str.id+"&email="+email+"&fbpic="+str.image+"";
+			    window.location.href = "seekerSearchView.html?user="+str.id+"&email="+email+"&fbpic="+str.image+"&loginas="+loginas+"";
 			}
 			else{
 				alert("Email or Password Incorrect : Please Retry");
@@ -853,3 +855,53 @@ function employerprofileView(){
                 }
             });
         };	
+		
+		
+function display_all_employers()
+{
+	
+	  $.ajax({
+                type: "POST",
+                url: "http://a-nsofttech.com/webservices/employercareerprofileview.php",
+                cache: false,
+				data: {email: email},
+                crossDomain: true,
+                dataType: "json",
+                success: function (response) {
+                    var str = response;
+					
+					var tt;
+					for (i in str)
+                    {	
+						
+					
+				        document.getElementById('companyname').innerHTML=str[i].companyname;
+						document.getElementById('companyemail').innerHTML="Email: "+str[i].email;
+						document.getElementById('companyposition').innerHTML=str[i].companyposition;
+						document.getElementById("companylogo").src =str[i].companylogo;
+						document.getElementById('companycontact').innerHTML="Phone: "+ str[i].companycontact;
+						document.getElementById("companylocation").innerHTML =str[i].city +","+str[i].country;		
+						document.getElementById("about_us").value  = str[i].about_us ;
+						document.getElementById("jobTitle1").value  = str[i].job_Title1 ;
+						document.getElementById("job_salary1").value  = str[i].job_Salary1 ;
+						document.getElementById("job_description1").value  = str[i].job_Description1 ;
+						document.getElementById("jobTitle2").value  = str[i].job_Title2 ;
+						document.getElementById("job_salary2").value  = str[i].job_Salary2 ;
+						document.getElementById("job_description2").value  = str[i].job_Description2 ;
+						document.getElementById("jobTitle3").value  = str[i].job_Title3 ;
+						document.getElementById("job_salary3").value  = str[i].job_Salary3 ;
+						document.getElementById("job_description3").value  = str[i].job_Description3 ;
+						document.getElementById("jobTitle4").value  = str[i].job_Title4 ;
+						document.getElementById("job_salary4").value  = str[i].job_Salary4 ;
+						document.getElementById("job_description4").value  = str[i].job_Description4 ;
+						
+						document.getElementById("fblink").value  = str[i].fblink ;
+						document.getElementById("twitterlink").value  = str[i].twitterlink ;
+						document.getElementById("googlelink").value  = str[i].googlelink;	
+			 
+                    }
+                }
+            });
+	
+}
+		

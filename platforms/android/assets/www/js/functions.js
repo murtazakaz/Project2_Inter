@@ -209,10 +209,13 @@ function uploadFromGallery() {
     // Retrieve image file location from specified source
     navigator.camera.getPicture(uploadPhoto,
                                 function(message) { alert('get picture failed'); },
-                                { quality: 40, 
+                                { 
+								 quality: 40, 
 								correctOrientation : true,
                                 destinationType: navigator.camera.DestinationType.FILE_URI,
-                                sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY }
+                                sourceType:navigator.camera.PictureSourceType.PHOTOLIBRARY 
+								
+								}
                                 );
 
 }
@@ -230,12 +233,11 @@ function uploadPhoto(imageURI) {
     var newchar = '1';
      mystring = mystring.split('?').join(newchar);
 	options.fileName=mystring;
-    options.mimeType="image/jpeg";
+    options.mimeType= "image/jpeg";
     imagesrc = imageURI;
 	document.getElementById("userimg").src = imagesrc;
 	// alert("save "+imagesrc);
 	 var email =getParameterByName('email');
-	
     var params = new Object();
     options.params = params;
 	 options.chunkedMode = false;
