@@ -15,6 +15,7 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="phonegap.js"></script>
 				<script type="text/javascript" src="js/functions.js"></script>
+				
 		<style>
          #item {
     position:relative;
@@ -37,6 +38,8 @@
 }
 		
 		</style>
+
+		
     </head>
     <body onload="display_job_list()">
          <div id="signup_page" data-theme="b" data-role="page" style="background: white;">
@@ -66,9 +69,9 @@
               
 		<div class="panel panel-default">
 				<div class="panel-body">
-					<div  class="ui-grid-b">
+					<div  id="employerProfileView" class="ui-grid-b">
 					
-					<div id="employerProfileView">
+					<!-- <div id="employerProfileView"> -->
 					<!-- <div class="ui-block-a" style="width:25%"><div class="ui-bar ui-bar-a"> -->
 						<!-- <div> -->
 							<!-- <img src="img/location.png" id="profilePic"  style="border-radius: 5px;  width: 70%; height: 60px;}"> -->
@@ -90,7 +93,7 @@
 						
 					<!-- </div></div> -->
 					
-					</div>
+					<!-- </div> -->
 					
 					
 				</div><!-- /grid-b -->

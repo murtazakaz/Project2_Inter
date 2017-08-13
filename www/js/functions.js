@@ -857,51 +857,39 @@ function employerprofileView(){
         };	
 		
 		
-function display_all_employers()
+function display_job_list()
 {
 	
 	  $.ajax({
-                type: "POST",
-                url: "http://a-nsofttech.com/webservices/employercareerprofileview.php",
+                // type: "POST",
+                url: "http://a-nsofttech.com/webservices/joblist.php",
                 cache: false,
-				data: {email: email},
+				// data: {email: email},
                 crossDomain: true,
                 dataType: "json",
                 success: function (response) {
-                    var str = response;
-					
+                     // alert("asd");
+					 str = response;
+					 email = "";
 					var tt;
 					for (i in str)
                     {	
-						
+				// alert(str[i].email);
+					 	  var email =  str[i].email;
 					
-				        document.getElementById('companyname').innerHTML=str[i].companyname;
-						document.getElementById('companyemail').innerHTML="Email: "+str[i].email;
-						document.getElementById('companyposition').innerHTML=str[i].companyposition;
-						document.getElementById("companylogo").src =str[i].companylogo;
-						document.getElementById('companycontact').innerHTML="Phone: "+ str[i].companycontact;
-						document.getElementById("companylocation").innerHTML =str[i].city +","+str[i].country;		
-						document.getElementById("about_us").value  = str[i].about_us ;
-						document.getElementById("jobTitle1").value  = str[i].job_Title1 ;
-						document.getElementById("job_salary1").value  = str[i].job_Salary1 ;
-						document.getElementById("job_description1").value  = str[i].job_Description1 ;
-						document.getElementById("jobTitle2").value  = str[i].job_Title2 ;
-						document.getElementById("job_salary2").value  = str[i].job_Salary2 ;
-						document.getElementById("job_description2").value  = str[i].job_Description2 ;
-						document.getElementById("jobTitle3").value  = str[i].job_Title3 ;
-						document.getElementById("job_salary3").value  = str[i].job_Salary3 ;
-						document.getElementById("job_description3").value  = str[i].job_Description3 ;
-						document.getElementById("jobTitle4").value  = str[i].job_Title4 ;
-						document.getElementById("job_salary4").value  = str[i].job_Salary4 ;
-						document.getElementById("job_description4").value  = str[i].job_Description4 ;
-						
-						document.getElementById("fblink").value  = str[i].fblink ;
-						document.getElementById("twitterlink").value  = str[i].twitterlink ;
-						document.getElementById("googlelink").value  = str[i].googlelink;	
-			 
+					tt = "<div class='ui-block-a' style='width:25%'><div class='ui-bar ui-bar-a'><div><img src='"+str[i].companylogo+"' id='profilePic' alt='No logo' style='border-radius: 5px;  width: 100%; height: 60px;}'></div></div></div><div class='ui-block-b' style='width:50%'><div class='ui-bar ui-bar-a'><p style='color: black; font-size: 12px;text-align: left;'>"+str[i].companyposition+" </p><p style='color: #000;font-size: 14px;font-weight: 300;'>"+str[i].companyname+"</p> <img src='img/location.png'/><span style='font-size: 9px;color: gray;text-align: left;' >&nbsp" +str[i].city+", "+str[i].country+"</span></div><hr></div><div class='ui-block-c' style='width:25%'><div class='ui-bar ui-bar-a'><a  onclick='jobdetail(\""+str[i].email+"\")' ><button style='border-radius: 60px; background: deepskyblue;color:#fff; border: none; font-size: 12px;' >Detail</button></a></div></div>";
+					 $("#employerProfileView").append(tt);
                     }
                 }
+		
             });
 	
 }
-		
+function jobdetail(email){ 
+
+window.location = "job_profile.html?email="+email+"";
+
+}		
+
+
+	
