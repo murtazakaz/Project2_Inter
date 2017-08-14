@@ -313,7 +313,7 @@ function signin(){
 					var str= data;	
 			if(data.Status == "success"){
 			// alert("Welcome, "+ str.username);
-			    window.location.href = "seekerSearchView.html?user="+str.id+"&email="+email+"&fbpic="+str.image+"&loginas="+loginas+"";
+			    window.location.href = "seekerlistview.html?user="+str.id+"&email="+email+"&fbpic="+str.image+"&loginas="+loginas+"";
 			}
 			else{
 				alert("Email or Password Incorrect : Please Retry");
@@ -877,7 +877,7 @@ function display_job_list()
 				// alert(str[i].email);
 					 	  var email =  str[i].email;
 					
-					tt = "<div class='ui-block-a' style='width:25%'><div class='ui-bar ui-bar-a'><div><img src='"+str[i].companylogo+"' id='profilePic' alt='No logo' style='border-radius: 5px;  width: 100%; height: 60px;}'></div></div></div><div class='ui-block-b' style='width:50%'><div class='ui-bar ui-bar-a'><p style='color: black; font-size: 12px;text-align: left;'>"+str[i].companyposition+" </p><p style='color: #000;font-size: 14px;font-weight: 300;'>"+str[i].companyname+"</p> <img src='img/location.png'/><span style='font-size: 9px;color: gray;text-align: left;' >&nbsp" +str[i].city+", "+str[i].country+"</span></div><hr></div><div class='ui-block-c' style='width:25%'><div class='ui-bar ui-bar-a'><a  onclick='jobdetail(\""+str[i].email+"\")' ><button style='border-radius: 60px; background: deepskyblue;color:#fff; border: none; font-size: 12px;' >Detail</button></a></div></div>";
+					tt = "<div class='ui-block-a' style='width:25%'><div class='ui-bar ui-bar-a'><div><img src='"+str[i].companylogo+"' id='profilePic' alt='No image' style='border-radius: 5px;  width: 100%; height: 60px;}'></div></div></div><div class='ui-block-b' style='width:50%'><div class='ui-bar ui-bar-a'><p style='color: black; font-size: 12px;text-align: left;'>"+str[i].companyposition+" </p><p style='color: #000;font-size: 14px;font-weight: 300;'>"+str[i].companyname+"</p> <img src='img/location.png'/><span style='font-size: 9px;color: gray;text-align: left;' >&nbsp" +str[i].city+", "+str[i].country+"</span></div><hr></div><div class='ui-block-c' style='width:25%'><div class='ui-bar ui-bar-a'><a  onclick='jobdetail(\""+str[i].email+"\")' ><button style='border-radius: 60px; background: deepskyblue;color:#fff; border: none; font-size: 12px;' >Detail</button></a></div></div>";
 					 $("#employerProfileView").append(tt);
                     }
                 }
@@ -886,6 +886,40 @@ function display_job_list()
 	
 }
 function jobdetail(email){ 
+
+window.location = "job_profile.html?email="+email+"";
+
+}		
+
+function job_seeker_list()
+{
+	
+	  $.ajax({
+                // type: "POST",
+                url: "http://a-nsofttech.com/webservices/seekerlist.php",
+                cache: false,
+				// data: {email: email},
+                crossDomain: true,
+                dataType: "json",
+                success: function (response) {
+                     // alert("asd");
+					 str = response;
+					 email = "";
+					var tt;
+					for (i in str)
+                    {	
+				// alert(str[i].email);
+					 	  var email =  str[i].email;
+					
+					tt = "<div class='ui-block-a' style='width:25%'><div class='ui-bar ui-bar-a'><div><img src='"+str[i].image+"' id='profilePic' alt='No image' style='border-radius: 5px;  width: 100%; height: 60px;}'></div></div></div><div class='ui-block-b' style='width:50%'><div class='ui-bar ui-bar-a'><p style='color: black; font-size: 12px;text-align: left;'>"+str[i].job1+" </p><p style='color: #000;font-size: 14px;font-weight: 300;'>"+str[i].cname1+"</p> <img src='img/location.png'/><span style='font-size: 9px;color: gray;text-align: left;' >&nbsp" +str[i].city+", "+str[i].country+"</span></div><hr></div><div class='ui-block-c' style='width:25%'><div class='ui-bar ui-bar-a'><a  onclick='seekerdetail(\""+str[i].email+"\")' ><button style='border-radius: 60px; background: deepskyblue;color:#fff; border: none; font-size: 12px;' >Detail</button></a></div></div>";
+					 $("#employerProfileView").append(tt);
+                    }
+                }
+		
+            });
+	
+}
+function seekerdetail(email){ 
 
 window.location = "job_profile.html?email="+email+"";
 
