@@ -1079,4 +1079,7 @@ function cat_job_seeker_list(){
 	window.location = "seekerlistview.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
 	}
 function cat_aboutus(){window.location = "about.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";}
-	
+function cat_contact_us()	
+{
+	// window.location = "contact.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
+	}
