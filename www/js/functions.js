@@ -14,7 +14,17 @@
 var email =getParameterByName('email');
 var loginas =getParameterByName('loginas');
 var fbpic =getParameterByName('fbpic');
+var user_name =getParameterByName('user_name');
 var selected_email =getParameterByName('selected_email');
+
+
+function side_menu_detail()
+{
+	document.getElementById('user_name').innerHTML= user_name;
+	document.getElementById("profile_pic").src =fbpic;
+	
+	
+}
 
 //signup
 function signup(){
@@ -295,7 +305,8 @@ function signin(){
 					var str= data;	
 			if(data.Status == "success"){
 			// alert("Welcome, "+ str.username);
-			   window.location.href = "joblistview.html?user="+str.id+"&email="+email+"&fbpic="+str.image+"&loginas="+loginas+"";
+			 user_name = str.fname + " " + str.lname;
+			   window.location.href = "joblistview.html?user="+str.id+"&email="+email+"&fbpic="+str.image+"&user_name="+user_name+"&loginas="+loginas+"";
 			}
 			else{
 				alert("Email or Password Incorrect : Please Retry");
@@ -317,7 +328,8 @@ function signin(){
 					var str= data;	
 			if(data.Status == "success"){
 			// alert("Welcome, "+ str.username);
-			    window.location.href = "seekerlistview.html?user="+str.id+"&email="+email+"&fbpic="+str.image+"&loginas="+loginas+"";
+			 user_name = str.fname + " " + str.lname;
+			    window.location.href = "seekerlistview.html?user="+str.id+"&email="+email+"&fbpic="+str.image+"&user_name="+user_name+"&loginas="+loginas+"";
 			}
 			else{
 				alert("Email or Password Incorrect : Please Retry");
@@ -340,7 +352,7 @@ function signin(){
 
 function seekerprofile(){
               
-            
+            side_menu_detail();
 			 
 		   $.ajax({
                 type: "POST",
@@ -567,7 +579,7 @@ function fail(error) {
 
 function employerprofile(){
               
-            
+            side_menu_detail();
 			 // alert(email);
 		   $.ajax({
                 type: "POST",
@@ -669,7 +681,7 @@ function insertionExtraInformationSeeker(){
                     data: dataString,
                     complete: function(data){
 					var str= data;	
-					window.location = "seekerprofileView.html?email="+email+"";
+					window.location = "seekerprofileView.html?email="+email+"&user_name="+user_name+"";
 				// if(str.Status == "exist")
 				// { alert("Email already exist, Try Again");}	
 				// else{
@@ -688,7 +700,7 @@ function insertionExtraInformationSeeker(){
 //
 function seekerprofileView(){
               
-            
+            side_menu_detail();
 			 
 		   $.ajax({
                 type: "POST",
@@ -760,7 +772,7 @@ function seekerprofileView(){
 		
 function jobseekerprofileView(){
               
-            
+             side_menu_detail();
 			 
 		   $.ajax({
                 type: "POST",
@@ -868,7 +880,7 @@ function jobseekerprofileView(){
                     data: dataString,
                     complete: function(data){
 					var str= data;	
-					window.location = "employerprofileview.html?email="+email+"";
+					window.location = "employerprofileview.html?email="+email+"&user_name="+user_name+"";
 				// if(str.Status == "exist")
 				// { alert("Email already exist, Try Again");}	
 				// else{
@@ -888,7 +900,7 @@ function jobseekerprofileView(){
 function employerprofileView(){
               
             
-			 
+			  side_menu_detail();
 		   $.ajax({
                 type: "POST",
                 url: "http://a-nsofttech.com/webservices/employercareerprofileview.php",
@@ -936,7 +948,7 @@ function employerprofileView(){
 function jobprofileView(){
               
             
-			 
+		side_menu_detail();
 		   $.ajax({
                 type: "POST",
                 url: "http://a-nsofttech.com/webservices/employercareerprofileview.php",
@@ -984,7 +996,7 @@ function jobprofileView(){
 		
 function display_job_list()
 {
-	
+	 side_menu_detail();
 	  $.ajax({
                 // type: "POST",
                 url: "http://a-nsofttech.com/webservices/joblist.php",
@@ -1012,13 +1024,13 @@ function display_job_list()
 }
 function jobdetail(job_email){ 
 
-window.location = "job_profile.html?email="+email+"&fbpic="+str.image+"&loginas="+loginas+"&selected_email="+job_email+"";
+window.location = "job_profile.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&selected_email="+job_email+"&user_name="+user_name+"";
 
 }		
 
 function job_seeker_list()
 {
-	
+	 side_menu_detail();
 	  $.ajax({
                 // type: "POST",
                 url: "http://a-nsofttech.com/webservices/seekerlist.php",
@@ -1046,15 +1058,25 @@ function job_seeker_list()
 }
 function seekerdetail(seeker_email){ 
 
-window.location = "seeker_detail.html?email="+email+"&fbpic="+str.image+"&loginas="+loginas+"&selected_email="+seeker_email+"";
+window.location = "seeker_detail.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&selected_email="+seeker_email+"&user_name="+user_name+"";
 
 }		
 //seeker categories
 
 function cat_seeker_profile(){
 	
-	window.location = "seekerProfileView.html?email="+email+"&fbpic="+str.image+"&loginas="+loginas+"";
+	window.location = "seekerProfileView.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
 	
 }
+function cat_job_list_view(){
+	window.location = "joblistview.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";}
+//employer categories
 
+function cat_company_profile(){
+	window.location = "employerprofileview.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
+}
+function cat_job_seeker_list(){
+	window.location = "seekerlistview.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
+	}
+function cat_aboutus(){window.location = "about.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";}
 	
