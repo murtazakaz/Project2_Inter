@@ -1002,7 +1002,7 @@ function display_job_list()
 				// alert(str[i].email);
 					 	  var email =  str[i].email;
 					
-					tt = "<div class='ui-block-a' style='width:25%'><div class='ui-bar ui-bar-a'><div><img src='"+str[i].companylogo+"' id='profilePic' alt='No image' style='border-radius: 5px;  width: 100%; height: 60px;}'></div></div></div><div class='ui-block-b' style='width:50%'><div class='ui-bar ui-bar-a'><p style='color: black; font-size: 12px;text-align: left;'>"+str[i].companyposition+" </p><p style='color: #000;font-size: 14px;font-weight: 300;'>"+str[i].companyname+"</p> <img src='img/location.png'/><span style='font-size: 9px;color: gray;text-align: left;' >&nbsp" +str[i].city+", "+str[i].country+"</span></div><hr></div><div class='ui-block-c' style='width:25%'><div class='ui-bar ui-bar-a'><a  onclick='jobdetail(\""+str[i].email+"\")' ><button style='border-radius: 60px; background: deepskyblue;color:#fff; border: none; font-size: 12px;' >Detail</button></a></div></div>";
+					tt = "<div class='ui-block-a' style='width:25%'><div class='ui-bar ui-bar-a'><div><img src='"+str[i].companylogo+"' id='profilePic' alt='No image' style='border-radius: 5px;  width: 100%; height: 60px;}'></div></div></div><div class='ui-block-b' style='width:50%'><div class='ui-bar ui-bar-a'><p style='color: black; font-size: 12px;text-align: left;'>"+str[i].companyposition+" </p><p style='color: #000;font-size: 14px;font-weight: 300;'><img src='img/work.png'/>&nbsp "+str[i].companyname+"</p> <img src='img/location.png'/><span style='font-size: 9px;color: gray;text-align: left;' >&nbsp" +str[i].city+", "+str[i].country+"</span></div><hr></div><div class='ui-block-c' style='width:25%'><div class='ui-bar ui-bar-a'><a  onclick='jobdetail(\""+str[i].email+"\")' ><button style='border-radius: 60px; background: deepskyblue;color:#fff; border: none; font-size: 12px;' >Detail</button></a></div></div>";
 					 $("#employerProfileView").append(tt);
                     }
                 }
@@ -1036,7 +1036,7 @@ function job_seeker_list()
 				// alert(str[i].email);
 					 	  var email =  str[i].email;
 					
-					tt = "<div class='ui-block-a' style='width:25%'><div class='ui-bar ui-bar-a'><div><img src='"+str[i].image+"' id='profilePic' alt='No image' style='border-radius: 5px;  width: 100%; height: 60px;}'></div></div></div><div class='ui-block-b' style='width:50%'><div class='ui-bar ui-bar-a'><p style='color: black; font-size: 12px;text-align: left;'>"+str[i].job1+" </p><p style='color: #000;font-size: 14px;font-weight: 300;'>"+str[i].cname1+"</p> <img src='img/location.png'/><span style='font-size: 9px;color: gray;text-align: left;' >&nbsp" +str[i].city+", "+str[i].country+"</span></div><hr></div><div class='ui-block-c' style='width:25%'><div class='ui-bar ui-bar-a'><a  onclick='seekerdetail(\""+str[i].email+"\")' ><button style='border-radius: 60px; background: deepskyblue;color:#fff; border: none; font-size: 12px;' >Detail</button></a></div></div>";
+					tt = "<div class='ui-block-a' style='width:25%'><div class='ui-bar ui-bar-a'><div><img src='"+str[i].image+"' id='profilePic' alt='No image' style='border-radius: 5px;  width: 100%; height: 60px;}'></div></div></div><div class='ui-block-b' style='width:50%'><div class='ui-bar ui-bar-a'><p style='color: black; font-size: 12px;text-align: left;'>"+str[i].job1+" </p><p style='color: #000;font-size: 14px;font-weight: 300;'><img src='img/work.png'/>&nbsp "+str[i].cname1+"</p> <img src='img/location.png'/><span style='font-size: 9px;color: gray;text-align: left;' >&nbsp" +str[i].city+", "+str[i].country+"</span></div><hr></div><div class='ui-block-c' style='width:25%'><div class='ui-bar ui-bar-a'><a  onclick='seekerdetail(\""+str[i].email+"\")' ><button style='border-radius: 60px; background: deepskyblue;color:#fff; border: none; font-size: 12px;' >Detail</button></a></div></div>";
 					 $("#employerProfileView").append(tt);
                     }
                 }
@@ -1049,6 +1049,12 @@ function seekerdetail(seeker_email){
 window.location = "seeker_detail.html?email="+email+"&fbpic="+str.image+"&loginas="+loginas+"&selected_email="+seeker_email+"";
 
 }		
+//seeker categories
 
+function cat_seeker_profile(){
+	
+	window.location = "seekerProfileView.html?email="+email+"&fbpic="+str.image+"&loginas="+loginas+"";
+	
+}
 
 	
