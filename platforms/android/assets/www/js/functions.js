@@ -12,6 +12,20 @@
  
 			 var resume = null;		
 var email =getParameterByName('email');
+var loginas =getParameterByName('loginas');
+var fbpic =getParameterByName('fbpic');
+var user_name =getParameterByName('user_name');
+var selected_email =getParameterByName('selected_email');
+
+
+function side_menu_detail()
+{
+	document.getElementById('user_name').innerHTML= user_name;
+	document.getElementById("profile_pic").src =fbpic;
+	
+	
+}
+
 //signup
 function signup(){
              
@@ -291,7 +305,8 @@ function signin(){
 					var str= data;	
 			if(data.Status == "success"){
 			// alert("Welcome, "+ str.username);
-			   window.location.href = "jobsearchresult.html?user="+str.id+"&email="+email+"&fbpic="+str.image+"";
+			 user_name = str.fname + " " + str.lname;
+			   window.location.href = "joblistview.html?user="+str.id+"&email="+email+"&fbpic="+str.image+"&user_name="+user_name+"&loginas="+loginas+"";
 			}
 			else{
 				alert("Email or Password Incorrect : Please Retry");
@@ -313,7 +328,8 @@ function signin(){
 					var str= data;	
 			if(data.Status == "success"){
 			// alert("Welcome, "+ str.username);
-			    window.location.href = "jobsearchresult.html?user="+str.id+"&email="+email+"&fbpic="+str.image+"";
+			 user_name = str.fname + " " + str.lname;
+			    window.location.href = "seekerlistview.html?user="+str.id+"&email="+email+"&fbpic="+str.image+"&user_name="+user_name+"&loginas="+loginas+"";
 			}
 			else{
 				alert("Email or Password Incorrect : Please Retry");
@@ -336,7 +352,7 @@ function signin(){
 
 function seekerprofile(){
               
-            
+            side_menu_detail();
 			 
 		   $.ajax({
                 type: "POST",
@@ -563,7 +579,7 @@ function fail(error) {
 
 function employerprofile(){
               
-            
+            side_menu_detail();
 			 // alert(email);
 		   $.ajax({
                 type: "POST",
@@ -665,7 +681,7 @@ function insertionExtraInformationSeeker(){
                     data: dataString,
                     complete: function(data){
 					var str= data;	
-					window.location = "seekerprofileView.html?email="+email+"";
+					window.location = "seekerprofileView.html?email="+email+"&user_name="+user_name+"";
 				// if(str.Status == "exist")
 				// { alert("Email already exist, Try Again");}	
 				// else{
@@ -684,7 +700,7 @@ function insertionExtraInformationSeeker(){
 //
 function seekerprofileView(){
               
-            
+            side_menu_detail();
 			 
 		   $.ajax({
                 type: "POST",
@@ -753,6 +769,79 @@ function seekerprofileView(){
                 }
             });
         };
+		
+function jobseekerprofileView(){
+              
+             side_menu_detail();
+			 
+		   $.ajax({
+                type: "POST",
+                url: "http://a-nsofttech.com/webservices/seekerprofileview.php",
+                cache: false,
+				data: {email: selected_email},
+                crossDomain: true,
+                dataType: "json",
+                success: function (response) {
+                    var str = response;
+					
+					var tt;
+					for (i in str)
+                    {	
+						
+						
+						document.getElementById('username').innerHTML=str[i].first_name+" "+str[i].last_name;
+						document.getElementById('email').innerHTML="Email: "+str[i].email;
+						document.getElementById('location').innerHTML=str[i].address1 +", "+ str[i].city+", "+str[i].country;
+						document.getElementById("profilePic").src =str[i].image;
+						document.getElementById('contact').innerHTML="Phone: "+ str[i].phone_number;
+						
+						document.getElementById("career_objective").value =str[i].career_objective;
+						//$('#register').hide();
+					
+						document.getElementById("jobDescription1").value =str[i].jobDescription1;
+						document.getElementById("jobDescription2").value =str[i].jobDescription2;
+						document.getElementById("jobDescription3").value =str[i].jobDescription3;
+						document.getElementById("jobDescription4").value =str[i].jobDescription4;
+						document.getElementById("educationDescription1").value =str[i].educationDescription1;
+						document.getElementById("educationDescription2").value =str[i].educationDescription2;
+						document.getElementById("educationDescription3").value =str[i].educationDescription3;
+						document.getElementById("specialQualification1").value =str[i].specialQualification1;
+						document.getElementById("specialQualification2").value =str[i].specialQualification2;
+						document.getElementById("specialQualification3").value =str[i].specialQualification3;
+						document.getElementById("specialQualification4").value =str[i].specialQualification4;
+						document.getElementById("reference1").value =str[i].reference1;
+						document.getElementById("reference2").value =str[i].reference2;
+						document.getElementById("reference3").value =str[i].reference3;
+						
+						
+						document.getElementById("jobTitle1").value =str[i].job1;
+						document.getElementById("company_name1").value =str[i].cname1;
+						document.getElementById("jobStartDate1").value =str[i].sdate1;
+						document.getElementById("jobEndDate1").value =str[i].edate1;
+						document.getElementById("jobTitle2").value =str[i].job2;
+						document.getElementById("company_name2").value =str[i].cname2;
+						document.getElementById("jobStartDate2").value =str[i].sdate2;
+						document.getElementById("jobEndDate2").value =str[i].edate2;
+						document.getElementById("jobTitle3").value =str[i].job3;
+						document.getElementById("company_name3").value =str[i].cname3;
+						document.getElementById("jobStartDate3").value =str[i].sdate3;
+						document.getElementById("jobEndDate3").value =str[i].edate3;
+						document.getElementById("jobTitle4").value =str[i].job4;
+						document.getElementById("company_name4").value =str[i].cname4;
+						document.getElementById("jobStartDate4").value =str[i].sdate4;
+						document.getElementById("jobEndDate4").value =str[i].edate4;
+						document.getElementById("educationTitle1").value =str[i].degree1;
+						document.getElementById("school_name1").value =str[i].sname1;
+						document.getElementById("educationTitle2").value =str[i].degree2;
+						document.getElementById("school_name2").value =str[i].sname2;
+						document.getElementById("educationTitle3").value =str[i].degree3;
+						document.getElementById("school_name3").value =str[i].sname3;
+                    
+                    }
+                }
+            });
+        };		
+		
 	function insertionExtraInformationEmployer(){
              var about_us = $("#about_us").val(); 
 			 var jobTitle1 = $("#jobTitle1").val(); 
@@ -791,7 +880,7 @@ function seekerprofileView(){
                     data: dataString,
                     complete: function(data){
 					var str= data;	
-					window.location = "employerprofileview.html?email="+email+"";
+					window.location = "employerprofileview.html?email="+email+"&user_name="+user_name+"";
 				// if(str.Status == "exist")
 				// { alert("Email already exist, Try Again");}	
 				// else{
@@ -811,7 +900,7 @@ function seekerprofileView(){
 function employerprofileView(){
               
             
-			 
+			  side_menu_detail();
 		   $.ajax({
                 type: "POST",
                 url: "http://a-nsofttech.com/webservices/employercareerprofileview.php",
@@ -855,3 +944,145 @@ function employerprofileView(){
                 }
             });
         };	
+
+function jobprofileView(){
+              
+            
+		side_menu_detail();
+		   $.ajax({
+                type: "POST",
+                url: "http://a-nsofttech.com/webservices/employercareerprofileview.php",
+                cache: false,
+				data: {email: selected_email},
+                crossDomain: true,
+                dataType: "json",
+                success: function (response) {
+                    var str = response;
+					
+					var tt;
+					for (i in str)
+                    {	
+						
+					
+				        document.getElementById('companyname').innerHTML=str[i].companyname;
+						document.getElementById('companyemail').innerHTML="Email: "+str[i].email;
+						document.getElementById('companyposition').innerHTML=str[i].companyposition;
+						document.getElementById("companylogo").src =str[i].companylogo;
+						document.getElementById('companycontact').innerHTML="Phone: "+ str[i].companycontact;
+						document.getElementById("companylocation").innerHTML =str[i].city +","+str[i].country;		
+						document.getElementById("about_us").value  = str[i].about_us ;
+						document.getElementById("jobTitle1").value  = str[i].job_Title1 ;
+						document.getElementById("job_salary1").value  = str[i].job_Salary1 ;
+						document.getElementById("job_description1").value  = str[i].job_Description1 ;
+						document.getElementById("jobTitle2").value  = str[i].job_Title2 ;
+						document.getElementById("job_salary2").value  = str[i].job_Salary2 ;
+						document.getElementById("job_description2").value  = str[i].job_Description2 ;
+						document.getElementById("jobTitle3").value  = str[i].job_Title3 ;
+						document.getElementById("job_salary3").value  = str[i].job_Salary3 ;
+						document.getElementById("job_description3").value  = str[i].job_Description3 ;
+						document.getElementById("jobTitle4").value  = str[i].job_Title4 ;
+						document.getElementById("job_salary4").value  = str[i].job_Salary4 ;
+						document.getElementById("job_description4").value  = str[i].job_Description4 ;
+						
+						document.getElementById("fblink").value  = str[i].fblink ;
+						document.getElementById("twitterlink").value  = str[i].twitterlink ;
+						document.getElementById("googlelink").value  = str[i].googlelink;	
+			 
+                    }
+                }
+            });
+        };	
+				
+		
+function display_job_list()
+{
+	 side_menu_detail();
+	  $.ajax({
+                // type: "POST",
+                url: "http://a-nsofttech.com/webservices/joblist.php",
+                cache: false,
+				// data: {email: email},
+                crossDomain: true,
+                dataType: "json",
+                success: function (response) {
+                     // alert("asd");
+					 str = response;
+					 email = "";
+					var tt;
+					for (i in str)
+                    {	
+				// alert(str[i].email);
+					 	  var email =  str[i].email;
+					
+					tt = "<div class='ui-block-a' style='width:25%'><div class='ui-bar ui-bar-a'><div><img src='"+str[i].companylogo+"' id='profilePic' alt='No image' style='border-radius: 5px;  width: 100%; height: 60px;}'></div></div></div><div class='ui-block-b' style='width:50%'><div class='ui-bar ui-bar-a'><p style='color: black; font-size: 12px;text-align: left;'>"+str[i].companyposition+" </p><p style='color: #000;font-size: 14px;font-weight: 300;'><img src='img/work.png'/>&nbsp "+str[i].companyname+"</p> <img src='img/location.png'/><span style='font-size: 9px;color: gray;text-align: left;' >&nbsp" +str[i].city+", "+str[i].country+"</span></div><hr></div><div class='ui-block-c' style='width:25%'><div class='ui-bar ui-bar-a'><a  onclick='jobdetail(\""+str[i].email+"\")' ><button style='border-radius: 60px; background: deepskyblue;color:#fff; border: none; font-size: 12px;' >Detail</button></a></div></div>";
+					 $("#employerProfileView").append(tt);
+                    }
+                }
+		
+            });
+	
+}
+function jobdetail(job_email){ 
+
+window.location = "job_profile.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&selected_email="+job_email+"&user_name="+user_name+"";
+
+}		
+
+function job_seeker_list()
+{
+	 side_menu_detail();
+	  $.ajax({
+                // type: "POST",
+                url: "http://a-nsofttech.com/webservices/seekerlist.php",
+                cache: false,
+				// data: {email: email},
+                crossDomain: true,
+                dataType: "json",
+                success: function (response) {
+                     // alert("asd");
+					 str = response;
+					 email = "";
+					var tt;
+					for (i in str)
+                    {	
+				// alert(str[i].email);
+					 	  var email =  str[i].email;
+					
+					tt = "<div class='ui-block-a' style='width:25%'><div class='ui-bar ui-bar-a'><div><img src='"+str[i].image+"' id='profilePic' alt='No image' style='border-radius: 5px;  width: 100%; height: 60px;}'></div></div></div><div class='ui-block-b' style='width:50%'><div class='ui-bar ui-bar-a'><p style='color: black; font-size: 12px;text-align: left;'>"+str[i].job1+" </p><p style='color: #000;font-size: 14px;font-weight: 300;'><img src='img/work.png'/>&nbsp "+str[i].cname1+"</p> <img src='img/location.png'/><span style='font-size: 9px;color: gray;text-align: left;' >&nbsp" +str[i].city+", "+str[i].country+"</span></div><hr></div><div class='ui-block-c' style='width:25%'><div class='ui-bar ui-bar-a'><a  onclick='seekerdetail(\""+str[i].email+"\")' ><button style='border-radius: 60px; background: deepskyblue;color:#fff; border: none; font-size: 12px;' >Apply</button></a></div></div>";
+					 $("#employerProfileView").append(tt);
+                    }
+                }
+		
+            });
+	
+}
+function seekerdetail(seeker_email){ 
+
+window.location = "seeker_detail.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&selected_email="+seeker_email+"&user_name="+user_name+"";
+
+}		
+//seeker categories
+
+function cat_seeker_profile(){
+	
+	window.location = "seekerProfileView.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
+	
+}
+function cat_job_list_view(){
+	window.location = "joblistview.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";}
+//employer categories
+
+function cat_company_profile(){
+	window.location = "employerprofileview.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
+}
+function cat_job_seeker_list(){
+	window.location = "seekerlistview.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
+	}
+function cat_aboutus(){
+	alert("Page in progress");
+	// window.location = "about.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
+	}
+function cat_contact_us()	
+{ 	alert("Page in progress");
+	// window.location = "contact.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
+	}

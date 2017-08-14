@@ -16,28 +16,28 @@
         <script type="text/javascript" src="phonegap.js"></script>
 		<script type="text/javascript" src="js/functions.js"></script>
     </head>
-    <body onload="employerprofileView()">
+    <body onload="jobprofileView()">
          <div id="signup_page" data-theme="b" data-role="page" style="background: white;">
          <div id="header_home" data-position="fixed" data-tap-toggle="false" data-role="header">
 
-            <h1>Employers Profile</h1>
+            <h1>Company Profile</h1>
             <a id="_home" href="#myPanel" class="ui-btn-left" data-icon="bars" data-iconpos="notext">Menu</a>
             <input type="hidden" id="edt_mail" />
         </div>
-		   <div data-role="panel" id="myPanel" data-display="push" data-position="left" data-theme="b" style="background:#0ab9b3;position:fixed;">
+		  <div data-role="panel" id="myPanel" data-display="push" data-position="left" data-theme="b" style="background:#0ab9b3;position:fixed;">
             <center><img style="border-radius: 50px; width: 40%; height: 80px;" id="profile_pic" src="img/profile.png"/>
 			<h5 id="user_name"></h5></center>
 			<br/><br/>
             <ul data-role="listview" data-inset="false">
 
-                <!-- <li><a id="go_logout" href="seeker.html">Seeker</a></li> -->
-				<li><a id="go_logout" onclick="cat_company_profile();">Profile</a></li>
-				<li><a id="go_logout" onclick="cat_job_seeker_list();">Job Seeker List</a></li>
-				<!-- <li><a id="go_logout" href="jobseekerprofile.html">Job Seeker Profile</a></li> -->
-				<!-- <li><a id="go_logout" href="employerprofile.html">Employeer Profile</a></li> -->
-				<!-- <li><a id="go_logout" href="jobfeed.html">Job List</a></li> -->
-				<li><a id="go_logout" onclick="cat_aboutus()">View Us</a></li>
-				<li><a id="go_logout" onclick="cat_contact_us()">Contact Us</a></li>
+                <li><a id="go_logout" href="seeker.html">Seeker</a></li>
+				<li><a id="go_logout" href="employer.html">Employer</a></li>
+				<li><a id="go_logout" href="jobsearchresult.html">Job Search Result</a></li>
+				<!--li><a id="go_logout" href="jobseekerprofile.html">Job Seeker Profile</a></li>
+				<li><a id="go_logout" href="employerprofile.html">Employeer Profile</a></li>
+				<li><a id="go_logout" href="jobfeed.html">Job List</a></li--->
+				<li><a id="go_logout" href="about.html">View Us</a></li>
+				<li><a id="go_logout" href="#">Contact Us</a></li>
 				<li><a id="go_logout" href="index.html">Logout</a></li>
             </ul>
         </div>
@@ -54,12 +54,12 @@
 					
 					<div class="ui-block-b" style="width:70%"><div class="ui-bar ui-bar-a">
 						
-							<h4 id="companyname"> </h4>
-					  <p style="font-size: 11px;" id="companyposition"> <p/>
-					  <img  src="img/location.png"/> 
-					  <span style="font-size: 9px;color: gray;"  id="companylocation"></span>
-					  <p id="companycontact" ></p>
-						<p id="companyemail"></p>
+					<h2 id="companyposition"> </h2>
+					 <p style="font-size: 12px;" id="companyname"> <p/>
+					 <p style="font-size: smaller; color: gray;" id="companycontact" ></p>
+					<p style="font-size: smaller; color: gray;" id="companyemail"></p>
+					 <img  src="img/location.png"/> 
+					  <span style="font-size: smaller; color: gray;"  id="companylocation"></span>
 						
 					</div></div>
 			</div>
