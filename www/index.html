@@ -23,26 +23,54 @@
 			<center><img src="img/C1.png"/></center>
           </div>
           <div data-role="content">
-               <fieldset data-role="fieldcontain">
-                <input type="email" name="email" class="inputfield" class="inputfield" style="background: white; color: black;" id="sign_email" placeholder="Email" class="required email">
-                <input type="password" name="password" style="background: white; color: black;" placeholder="Password" class="inputfield" id="sign_pass" class="required">
-				<a onclick="signin()" style="text-decoration:none;"><button data-transition="pop" id="logon" style="background:#ed8548;">LOGIN AS</button></a>
-				</fieldset>
-	<form>
-    <fieldset data-role="controlgroup" data-type="horizontal" style="text-align:center;">
+               <!-- <fieldset data-role="fieldcontain"> -->
+                <!-- <input type="email" name="email" class="inputfield" class="inputfield" style="background: white; color: black;" id="sign_email" placeholder="Email" class="required email"> -->
+                <!-- <input type="password" name="password" style="background: white; color: black;" placeholder="Password" class="inputfield" id="sign_pass" class="required"> -->
+				<!-- <a onclick="signin()" style="text-decoration:none;"><button data-transition="pop" id="logon" style="background:#ed8548;">LOGIN AS</button></a> -->
+				<!-- </fieldset> -->
+	<!-- <form> -->
+    <!-- <fieldset data-role="controlgroup" data-type="horizontal" style="text-align:center;"> -->
       
-        <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2a" value="on" checked="checked">
-        <label for="radio-choice-h-2a">Seeker</label>
-        <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2b" value="off">
-        <label for="radio-choice-h-2b">Employer</label>
+        <!-- <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2a" value="on" checked="checked"> -->
+        <!-- <label for="radio-choice-h-2a">Seeker</label> -->
+        <!-- <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2b" value="off"> -->
+        <!-- <label for="radio-choice-h-2b">Employer</label> -->
         
-    </fieldset>
+    <!-- </fieldset> -->
 	
-</form>
-				<hr/><br/>
-            <a href="seeker.html" style="text-decoration:none;"><button data-transition="pop" type="submit" id="logon" value="Login" style="background:#0ab9b3;">SIGN UP FOR SEEKER</button></a>
-            <a href="employer.html" style="text-decoration:none;"><button data-transition="pop" type="submit" id="logon" value="Login" style="background:#ed8548;">SIGN UP FOR EMPLOYER </button></a>
-          </div>
+<!-- </form> -->
+				<!-- <hr/><br/> -->
+            <!-- <a href="seeker.html" style="text-decoration:none;"><button data-transition="pop" type="submit" id="logon" value="Login" style="background:#0ab9b3;">SIGN UP FOR SEEKER</button></a> -->
+            <!-- <a href="employer.html" style="text-decoration:none;"><button data-transition="pop" type="submit" id="logon" value="Login" style="background:#ed8548;">SIGN UP FOR EMPLOYER </button></a> -->
+          <!-- </div> -->
+		  
+		     <a onclick="videoCapture();"><button>Take Video</button></a>
+			<div id="videoArea"></div>
+<script>
+<!-- document.addEventListener("deviceready", init, false); -->
+function videoCapture() {
+   alert("success");
+   var options = {
+      limit: 1,
+      duration: 60
+   };
+   navigator.device.capture.captureVideo(onSuccess, onError, options);
+
+   function onSuccess(mediaFiles) {
+     
+	  var i, path, len;
+      for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+         path = mediaFiles[i].fullPath;
+         console.log(mediaFiles);
+      }
+   }
+
+   function onError(error) {
+      navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+   }
+}
+</script>
+		  
          </div>
 
         <div id="frgt_dlg" data-role="page" data-dialog="true" data-theme="b">
