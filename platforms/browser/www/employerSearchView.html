@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="lib/jquery-mobile/css/jquery.mobile-1.4.0.min.css" />
+        <script type="text/javascript" src="lib/jquery-mobile/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="lib/jquery-mobile-router/js/jquery.mobile.router.min.js"></script>
+        <script type="text/javascript" src="lib/jquery-mobile/js/jquery.mobile-1.4.0.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="css/jqm-icon-pack-fa.css">
+        <title>Inter View</title>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="phonegap.js"></script>
+				<script type="text/javascript" src="js/functions.js"></script>
+		<style>
+         #item {
+    position:relative;
+    padding-top:20px;
+    display:inline-block;
+	width: 30%;
+}
+#notify-badge{
+    position: absolute;
+       right: 12px;
+    top:10px;
+    
+    text-align: center;
+    border-radius: 30px 30px 30px 30px;
+    color:white;
+    padding:5px 10px;
+    font-size:10px;
+	 width: 30%;
+
+}
+		
+		</style>
+    </head>
+    <body onload="display_job_list()">
+         <div id="signup_page" data-theme="b" data-role="page" style="background: white;">
+         <div id="header_home" data-position="fixed" data-tap-toggle="false" data-role="header" style="background:white; color: black;">
+
+            <h1>Job List</h1>
+            <a id="_home" href="#myPanel" class="ui-btn-left" data-icon="bars" data-iconpos="notext">Menu</a>
+            <input type="hidden" id="edt_mail" />
+        </div>
+		  <div data-role="panel" id="myPanel" data-display="push" data-position="left" data-theme="b" style="background:#0ab9b3;position:fixed;">
+            <center><a href="#"><img src="img/profile.png"/></a>
+			<h5>John</h5></center>
+			<br/><br/>
+            <ul data-role="listview" data-inset="false">
+
+                <li><a id="go_logout" href="seeker.html">Seeker</a></li>
+				<li><a id="go_logout" href="employer.html">Employer</a></li>
+				<li><a id="go_logout" href="jobsearchresult.html">Job Search Result</a></li>
+				<li><a id="go_logout" href="jobseekerprofile.html">Job Seeker Profile</a></li>
+				<li><a id="go_logout" href="employerprofile.html">Employeer Profile</a></li>
+				<li><a id="go_logout" href="jobfeed.html">Job List</a></li>
+				<li><a id="go_logout" href="about.html">View Us</a></li>
+				<li><a id="go_logout" href="#">Contact Us</a></li>
+				<li><a id="go_logout" href="index.html">Logout</a></li>
+            </ul>
+        </div>
+              
+		<div class="panel panel-default">
+				<div class="panel-body">
+					<div  class="ui-grid-b">
+					
+					<div id="employerProfileView">
+					<!-- <div class="ui-block-a" style="width:25%"><div class="ui-bar ui-bar-a"> -->
+						<!-- <div> -->
+							<!-- <img src="img/location.png" id="profilePic"  style="border-radius: 5px;  width: 70%; height: 60px;}"> -->
+                         <!-- </div>							 -->
+						
+					<!-- </div></div> -->
+					
+					<!-- <div class="ui-block-b" style="width:50%"><div class="ui-bar ui-bar-a"> -->
+						
+							<!-- <p style="color: black; font-size: 12px;text-align: left;">Front-end Developer </p>	 -->
+							<!-- <img src="img/location.png"/>  -->
+							<!-- <span style="font-size: 9px;color: gray;text-align: left;" >Newyork City, United States </span> -->
+						
+					<!-- </div></div> -->
+					
+					<!-- <div class="ui-block-c" style="width:25%"><div class="ui-bar ui-bar-a"> -->
+						
+							<!-- <button style="border-radius: 60px; background: deepskyblue;color:#fff; border: none; font-size: 12px;" >Apply</button> -->
+						
+					<!-- </div></div> -->
+					
+					</div>
+					
+					
+				</div><!-- /grid-b -->
+		  </div>
+		 </div>  
+		
+    </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="lib/jquery-mobile/css/jquery.mobile-1.4.0.min.css" />
+        <script type="text/javascript" src="lib/jquery-mobile/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="lib/jquery-mobile-router/js/jquery.mobile.router.min.js"></script>
+        <script type="text/javascript" src="lib/jquery-mobile/js/jquery.mobile-1.4.0.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>BTC Card</title>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="phonegap.js"></script>
+    </head>
+    <body>
+         <div id="signup_page" data-theme="b" data-role="page" style="background-image: url('img/bg.jpg'); background-size:cover">
+          <div id="header_signup" data-position="fixed" data-tap-toggle="false" data-role="header">
+                <h1>User Registration</h1>
+          </div>
+          <div id="main_signup" data-role="content">
+              <form id="frmLogin">
+                  <div data-role="fieldcontain">
+                    <input type="text" id="fullname" placeholder="Full Name" name="fullname" class="required name" data-clear-btn="true" />
+                 </div>
+                 <div data-role="fieldcontain">
+                    <input type="email" id="sign_email" placeholder="Email" name="fullname" class="required name" data-clear-btn="true" />
+                 </div>
+                 <div data-role="fieldcontain">
+                    <input type="text" id="sign_pass" placeholder="Password" name="fullname" class="required name" data-clear-btn="true" />
+                 </div>
+                 <div data-role="fieldcontain">
+                    <input type="text" id="con_pass" placeholder="Confirm password" name="fullname" class="required name" data-clear-btn="true" />
+                 </div>
+                  <div data-role="fieldcontain">
+                    <input type="number" id="sign_phone" placeholder="Phone" name="fullname" class="required name" data-clear-btn="true" />
+                 </div>
+              </form>
+          </div>
+          <div data-role="main" class="ui-content" style="margin-top:-20px;">
+            <button type="submit" id="signup" value="okay" onclick="signup();">Sign Up </button>
+        </div>
+        </div>
+        
+		<script>
+		function signup(){
+               alert("Working");
+             var email = $("#username").val();
+             var pass = $("#pass").val();
+                    $.ajax({
+                    url: "",
+                    type: "POST",
+                    dataType:'text',
+                    data: {email: email,password:pass},
+                    success: function(data){
+			if(data.Status == "success"){
+			   alert("login successful");
+			}
+			else{
+				alert("login failed");
+			    }
+                        
+                    }
+                    });   
+                
+              
+        }
+		</script>
+		
+    </body>
+</html>

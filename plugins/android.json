@@ -15,6 +15,15 @@
         },
         "cordova-plugin-file-transfer": {
             "PACKAGE_NAME": "com.cufflink.ms"
+        },
+        "cordova-plugin-spinner": {
+            "PACKAGE_NAME": "com.cufflink.ms"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.cufflink.ms"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.cufflink.ms"
         }
     },
     "dependent_plugins": {
