@@ -715,7 +715,13 @@ function seekerprofileView(){
 					var tt;
 					for (i in str)
                     {	
-						
+						 var video = document.getElementById('video');
+							var source = document.createElement('source');
+
+							source.setAttribute('src', str[i].video);
+
+							video.appendChild(source);
+							// video.play();
 						
 						document.getElementById('username').innerHTML=str[i].first_name+" "+str[i].last_name;
 						document.getElementById('email').innerHTML="Email: "+str[i].email;
@@ -787,7 +793,13 @@ function jobseekerprofileView(){
 					var tt;
 					for (i in str)
                     {	
-						
+						 var video = document.getElementById('video');
+							var source = document.createElement('source');
+
+							source.setAttribute('src', str[i].video);
+
+							video.appendChild(source);
+							// video.play();
 						
 						document.getElementById('username').innerHTML=str[i].first_name+" "+str[i].last_name;
 						document.getElementById('email').innerHTML="Email: "+str[i].email;
@@ -1089,8 +1101,9 @@ function videoCapture() {
       navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
    }
 function uploadvideo(imageURI) {
+	var percent = 0;
 	var options = { dimBackground: true }; 
-   // SpinnerPlugin.activityStart("Uploading...", options);	 
+    SpinnerPlugin.activityStart("Uploading..."+percent+"", options);	 
 	 navigator.notification.alert(imageURI, null, 'file path');
    
     var options = new FileUploadOptions();
@@ -1121,10 +1134,9 @@ video.appendChild(source);
 ft.onprogress = function(result){
      var percent =  result.loaded / result.total * 100;
      percent = Math.round(percent);
-	 document.getElementById('percent').innerHTML= percent;
+	 // document.getElementById('percent').innerHTML= percent;
  //    alert('Uploading:  ' + percent + '%'); 
-<!-- var options = { dimBackground: true }; -->
-<!-- SpinnerPlugin.activityStart("Uploading..."+percent+"", options);	   -->
+
 };
     ft.upload(imageURI, encodeURI("http://a-nsofttech.com/webservices/videoupload.php"), win, fail, options);
 }
@@ -1132,7 +1144,7 @@ ft.onprogress = function(result){
 function win(r) {
 	 // loadhide();
 	// regshow();
-	// SpinnerPlugin.activityStop();
+	SpinnerPlugin.activityStop();
 	// <!-- SpinnerPlugin.activityStop(); -->
 	alert("An upload: Code = " + r.response);
     // alert("Code = " + r.responseCode);
