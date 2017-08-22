@@ -1101,9 +1101,9 @@ function videoCapture() {
       navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
    }
 function uploadvideo(imageURI) {
-	var percent = 0;
+	
 	var options = { dimBackground: true }; 
-    SpinnerPlugin.activityStart("Uploading..."+percent+"", options);	 
+    SpinnerPlugin.activityStart("Uploading...", options);	 
 	 navigator.notification.alert(imageURI, null, 'file path');
    
     var options = new FileUploadOptions();
