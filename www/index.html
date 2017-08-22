@@ -23,112 +23,26 @@
 			<center><img src="img/C1.png"/></center>
           </div>
           <div data-role="content">
-               <!-- <fieldset data-role="fieldcontain"> -->
-                <!-- <input type="email" name="email" class="inputfield" class="inputfield" style="background: white; color: black;" id="sign_email" placeholder="Email" class="required email"> -->
-                <!-- <input type="password" name="password" style="background: white; color: black;" placeholder="Password" class="inputfield" id="sign_pass" class="required"> -->
-				<!-- <a onclick="signin()" style="text-decoration:none;"><button data-transition="pop" id="logon" style="background:#ed8548;">LOGIN AS</button></a> -->
-				<!-- </fieldset> -->
-	<!-- <form> -->
-    <!-- <fieldset data-role="controlgroup" data-type="horizontal" style="text-align:center;"> -->
+               <fieldset data-role="fieldcontain">
+                <input type="email" name="email" class="inputfield" class="inputfield" style="background: white; color: black;" id="sign_email" placeholder="Email" class="required email">
+                <input type="password" name="password" style="background: white; color: black;" placeholder="Password" class="inputfield" id="sign_pass" class="required">
+				<a onclick="signin()" style="text-decoration:none;"><button data-transition="pop" id="logon" style="background:#ed8548;">LOGIN AS</button></a>
+				</fieldset>
+	<form>
+    <fieldset data-role="controlgroup" data-type="horizontal" style="text-align:center;">
       
-        <!-- <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2a" value="on" checked="checked"> -->
-        <!-- <label for="radio-choice-h-2a">Seeker</label> -->
-        <!-- <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2b" value="off"> -->
-        <!-- <label for="radio-choice-h-2b">Employer</label> -->
+        <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2a" value="on" checked="checked">
+        <label for="radio-choice-h-2a">Seeker</label>
+        <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2b" value="off">
+        <label for="radio-choice-h-2b">Employer</label>
         
-    <!-- </fieldset> -->
+    </fieldset>
 	
-<!-- </form> -->
-				<!-- <hr/><br/> -->
-            <!-- <a href="seeker.html" style="text-decoration:none;"><button data-transition="pop" type="submit" id="logon" value="Login" style="background:#0ab9b3;">SIGN UP FOR SEEKER</button></a> -->
-            <!-- <a href="employer.html" style="text-decoration:none;"><button data-transition="pop" type="submit" id="logon" value="Login" style="background:#ed8548;">SIGN UP FOR EMPLOYER </button></a> -->
-          <!-- </div> -->
-		  
-		     <a onclick="videoCapture();"><button>Take Video</button></a>
-			<div id="videoArea"></div>
-			<p id="percent"></p>
-<script>
-<!-- document.addEventListener("deviceready", init, false); -->
-function videoCapture() {
-   alert("success");
-   var options = {
-      limit: 1,
-      duration: 30,
-	  quality: 0
-	 
-   };
-   navigator.device.capture.captureVideo(onSuccess, onError, options);
-
-  
-
-}
-
- function onSuccess(mediaFiles) {
-     
-	  var i, path, len;
-      for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-         path = mediaFiles[i].fullPath;
-         uploadvideo(path);
-      }
-   }
-
-   function onError(error) {
-      navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
-   }
-function uploadvideo(imageURI) {
-	// loadshow();
-	 navigator.notification.alert(imageURI, null, 'file path');
-   
-    var options = new FileUploadOptions();
-    options.fileKey="file";
-     options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
-	 <!-- mystring = imageURI.substr(imageURI.lastIndexOf('/')+1);  -->
-    <!-- var newchar = '1'; -->
-     <!-- mystring = mystring.split('?').join(newchar); -->
-	<!-- options.fileName=imageURI; -->
-    options.mimeType= "video/mp4";
-    <!-- imagesrc = imageURI; -->
-	<!-- document.getElementById("userimg").src = imagesrc; -->
-	// alert("save "+imagesrc);
-	// var email =getParameterByName('email');
-    var params = new Object();
-    options.params = params;
-	 options.chunkedMode = false;
-    var ft = new FileTransfer();
-	// alert(imageURI);
-
-ft.onprogress = function(result){
-     var percent =  result.loaded / result.total * 100;
-     percent = Math.round(percent);
-	 document.getElementById('percent').innerHTML= percent;
- //    alert('Uploading:  ' + percent + '%'); 
-<!-- var options = { dimBackground: true }; -->
-<!-- SpinnerPlugin.activityStart("Uploading..."+percent+"", options);	   -->
-};
-    ft.upload(imageURI, encodeURI("http://a-nsofttech.com/webservices/videoupload.php"), win, fail, options,true);
-}
-
-function win(r) {
-	 // loadhide();
-	// regshow();
-	<!-- SpinnerPlugin.activityStop(); -->
-	alert("An upload: Code = " + r.response);
-    // alert("Code = " + r.responseCode);
-    // alert("Response = " + r.response);
-    // alert("Sent = " + r.bytesSent);
-}
-
-function fail(error) {
-<!-- SpinnerPlugin.activityStop(); -->
-	 // loadhide();
-     alert("Check Internet connection = " + error.code);
-	 <!-- alert("Check Internet connection"); -->
-     alert("upload error source " + error.source);
-    alert("upload error target " + error.target);
-}
-
-</script>
-		  
+</form>
+				<hr/><br/>
+            <a href="seeker.html" style="text-decoration:none;"><button data-transition="pop" type="submit" id="logon" value="Login" style="background:#0ab9b3;">SIGN UP FOR SEEKER</button></a>
+            <a href="employer.html" style="text-decoration:none;"><button data-transition="pop" type="submit" id="logon" value="Login" style="background:#ed8548;">SIGN UP FOR EMPLOYER </button></a>
+          </div>
          </div>
 
         <div id="frgt_dlg" data-role="page" data-dialog="true" data-theme="b">

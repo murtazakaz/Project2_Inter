@@ -93,11 +93,11 @@
 		
 		<hr/>
 				
-			<a href="#" style="text-decoration:none;"><button data-transition="pop" type="submit" id="logon" value="Login" style="background:#ed8548;">Video </button></a>
+			<a onclick="videoCapture()" style="text-decoration:none;"><button data-transition="pop" type="submit" id="logon" value="Login" style="background:#ed8548;">Capture Video </button></a>
 
-				<video width="100%" controls="" style="background:#000">
-                    <source src="mov_bbb.mp4" type="video/mp4">
-                    <source src="mov_bbb.ogg" type="video/ogg">
+				<video id="video" width="100%" controls="" style="background:#000">
+                    <!-- <source src="mov_bbb.mp4" type="video/mp4"> -->
+                    <!-- <source src="mov_bbb.ogg" type="video/ogg"> -->
                 </video>		
 
 				<input type="text" class="form-control" style="background:#fff;color:#000" placeholder="Youtube Link Here">

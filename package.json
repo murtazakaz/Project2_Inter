@@ -1,0 +1,33 @@
+{
+    "name": "com.cufflink.ms",
+    "version": "1.0.0",
+    "displayName": "Interview Me",
+    "cordova": {
+        "platforms": [
+            "android",
+            "browser"
+        ],
+        "plugins": {
+            "cordova-plugin-camera": {},
+            "cordova-plugin-dialogs": {},
+            "cordova-plugin-file-transfer": {},
+            "cordova-plugin-media-capture": {},
+            "cordova-plugin-spinner": {},
+            "cordova-plugin-whitelist": {},
+            "cordova-plugin-android-permissions": {},
+            "cordova-plugin-inappbrowser": {}
+        }
+    },
+    "dependencies": {
+        "cordova-android": "^6.2.3",
+        "cordova-browser": "~4.1.0",
+        "cordova-plugin-android-permissions": "^1.0.0",
+        "cordova-plugin-camera": "~2.4.1",
+        "cordova-plugin-dialogs": "~1.3.3",
+        "cordova-plugin-file-transfer": "~1.6.3",
+        "cordova-plugin-inappbrowser": "^1.7.1",
+        "cordova-plugin-media-capture": "~1.4.3",
+        "cordova-plugin-spinner": "~1.1.0",
+        "cordova-plugin-whitelist": "1"
+    }
+}

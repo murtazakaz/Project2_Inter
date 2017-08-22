@@ -1056,6 +1056,103 @@ function job_seeker_list()
             });
 	
 }
+
+
+
+//video function
+
+function videoCapture() {
+   alert("success");
+   var options = {
+      limit: 1,
+      duration: 30
+	
+	 
+   };
+   navigator.device.capture.captureVideo(onSuccess, onError, options);
+
+  
+
+}
+
+ function onSuccess(mediaFiles) {
+   
+   
+	  var i, path, len;
+      for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+         path = mediaFiles[i].fullPath;
+         uploadvideo(path);
+      }
+   }
+
+   function onError(error) {
+      navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+   }
+function uploadvideo(imageURI) {
+	var options = { dimBackground: true }; 
+   // SpinnerPlugin.activityStart("Uploading...", options);	 
+	 navigator.notification.alert(imageURI, null, 'file path');
+   
+    var options = new FileUploadOptions();
+    options.fileKey="file";
+     options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+	 // <!-- mystring = imageURI.substr(imageURI.lastIndexOf('/')+1);  -->
+    // <!-- var newchar = '1'; -->
+     // <!-- mystring = mystring.split('?').join(newchar); -->
+	// <!-- options.fileName=imageURI; -->
+    // options.mimeType= "video/mp4";
+    // <!-- imagesrc = imageURI; -->
+	 // document.getElementById("videosrc").src = imagesrc; 
+	 var video = document.getElementById('video');
+var source = document.createElement('source');
+
+source.setAttribute('src', imageURI);
+
+video.appendChild(source);
+// video.play();
+	// alert("save "+imagesrc);
+	// var email =getParameterByName('email');
+    var params = new Object();
+    options.params = params;
+	 options.chunkedMode = false;
+    var ft = new FileTransfer();
+	// alert(imageURI);
+
+ft.onprogress = function(result){
+     var percent =  result.loaded / result.total * 100;
+     percent = Math.round(percent);
+	 document.getElementById('percent').innerHTML= percent;
+ //    alert('Uploading:  ' + percent + '%'); 
+<!-- var options = { dimBackground: true }; -->
+<!-- SpinnerPlugin.activityStart("Uploading..."+percent+"", options);	   -->
+};
+    ft.upload(imageURI, encodeURI("http://a-nsofttech.com/webservices/videoupload.php"), win, fail, options);
+}
+
+function win(r) {
+	 // loadhide();
+	// regshow();
+	// SpinnerPlugin.activityStop();
+	// <!-- SpinnerPlugin.activityStop(); -->
+	alert("An upload: Code = " + r.response);
+    // alert("Code = " + r.responseCode);
+    // alert("Response = " + r.response);
+    // alert("Sent = " + r.bytesSent);
+}
+
+function fail(error) {
+    // SpinnerPlugin.activityStop(); 
+	 // loadhide();
+     alert("Check Internet connection = " + error.code);
+	 <!-- alert("Check Internet connection"); -->
+     alert("upload error source " + error.source);
+    alert("upload error target " + error.target);
+}
+
+
+//video end
+
+
 function seekerdetail(seeker_email){ 
 
 window.location = "seeker_detail.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&selected_email="+seeker_email+"&user_name="+user_name+"";

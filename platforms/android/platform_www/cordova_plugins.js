@@ -33,6 +33,22 @@ module.exports = [
         ]
     },
     {
+        "id": "cordova-plugin-dialogs.notification",
+        "file": "plugins/cordova-plugin-dialogs/www/notification.js",
+        "pluginId": "cordova-plugin-dialogs",
+        "merges": [
+            "navigator.notification"
+        ]
+    },
+    {
+        "id": "cordova-plugin-dialogs.notification_android",
+        "file": "plugins/cordova-plugin-dialogs/www/android/notification.js",
+        "pluginId": "cordova-plugin-dialogs",
+        "merges": [
+            "navigator.notification"
+        ]
+    },
+    {
         "id": "cordova-plugin-file.DirectoryEntry",
         "file": "plugins/cordova-plugin-file/www/DirectoryEntry.js",
         "pluginId": "cordova-plugin-file",
@@ -216,14 +232,6 @@ module.exports = [
         ]
     },
     {
-        "id": "cordova-plugin-spinner.SpinnerPlugin",
-        "file": "plugins/cordova-plugin-spinner/www/spinner-plugin.js",
-        "pluginId": "cordova-plugin-spinner",
-        "clobbers": [
-            "SpinnerPlugin"
-        ]
-    },
-    {
         "id": "cordova-plugin-media-capture.CaptureAudioOptions",
         "file": "plugins/cordova-plugin-media-capture/www/CaptureAudioOptions.js",
         "pluginId": "cordova-plugin-media-capture",
@@ -292,33 +300,44 @@ module.exports = [
         "runs": true
     },
     {
-        "id": "cordova-plugin-dialogs.notification",
-        "file": "plugins/cordova-plugin-dialogs/www/notification.js",
-        "pluginId": "cordova-plugin-dialogs",
-        "merges": [
-            "navigator.notification"
+        "id": "cordova-plugin-spinner.SpinnerPlugin",
+        "file": "plugins/cordova-plugin-spinner/www/spinner-plugin.js",
+        "pluginId": "cordova-plugin-spinner",
+        "clobbers": [
+            "SpinnerPlugin"
         ]
     },
     {
-        "id": "cordova-plugin-dialogs.notification_android",
-        "file": "plugins/cordova-plugin-dialogs/www/android/notification.js",
-        "pluginId": "cordova-plugin-dialogs",
-        "merges": [
-            "navigator.notification"
+        "id": "cordova-plugin-android-permissions.Permissions",
+        "file": "plugins/cordova-plugin-android-permissions/www/permissions.js",
+        "pluginId": "cordova-plugin-android-permissions",
+        "clobbers": [
+            "cordova.plugins.permissions"
+        ]
+    },
+    {
+        "id": "cordova-plugin-inappbrowser.inappbrowser",
+        "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+        "pluginId": "cordova-plugin-inappbrowser",
+        "clobbers": [
+            "cordova.InAppBrowser.open",
+            "window.open"
         ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "cordova-plugin-whitelist": "1.2.2",
     "cordova-plugin-compat": "1.1.0",
     "cordova-plugin-camera": "2.4.1",
+    "cordova-plugin-dialogs": "1.3.3",
     "cordova-plugin-file": "4.0.0",
     "cordova-plugin-file-transfer": "1.6.3",
-    "cordova-plugin-spinner": "1.1.0",
     "cordova-plugin-media-capture": "1.4.3",
-    "cordova-plugin-dialogs": "1.3.3"
+    "cordova-plugin-spinner": "1.1.0",
+    "cordova-plugin-whitelist": "1.2.2",
+    "cordova-plugin-android-permissions": "1.0.0",
+    "cordova-plugin-inappbrowser": "1.7.1"
 };
 // BOTTOM OF METADATA
 });

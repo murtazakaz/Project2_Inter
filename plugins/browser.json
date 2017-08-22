@@ -7,31 +7,37 @@
         "files": {}
     },
     "installed_plugins": {
+        "cordova-plugin-android-permissions": {
+            "PACKAGE_NAME": "com.puzzlerz.interviewMe"
+        },
         "cordova-plugin-camera": {
-            "PACKAGE_NAME": "com.cufflink.ms"
-        },
-        "cordova-plugin-file-transfer": {
-            "PACKAGE_NAME": "com.cufflink.ms"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.cufflink.ms"
-        },
-        "cordova-plugin-spinner": {
-            "PACKAGE_NAME": "com.cufflink.ms"
-        },
-        "cordova-plugin-media-capture": {
-            "PACKAGE_NAME": "com.cufflink.ms"
+            "PACKAGE_NAME": "com.puzzlerz.interviewMe"
         },
         "cordova-plugin-dialogs": {
-            "PACKAGE_NAME": "com.cufflink.ms"
+            "PACKAGE_NAME": "com.puzzlerz.interviewMe"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.puzzlerz.interviewMe"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.puzzlerz.interviewMe"
+        },
+        "cordova-plugin-spinner": {
+            "PACKAGE_NAME": "com.puzzlerz.interviewMe"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.puzzlerz.interviewMe"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.puzzlerz.interviewMe"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.cufflink.ms"
+            "PACKAGE_NAME": "com.puzzlerz.interviewMe"
         },
         "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.cufflink.ms"
+            "PACKAGE_NAME": "com.puzzlerz.interviewMe"
         }
     }
 }
