@@ -88,7 +88,9 @@ function signup(){
 					var str= data;	
 					
 				if(str.Status == "exist")
-				{ alert("Email already exist, Try Again");}	
+				{ alert("Email already exist, Try Again");
+			
+			}	
 				else{
 			   alert("Email has been sent to " + email );
 			   window.location.href = "verifyaccount.html?"+dataString+"&code="+str.Status+"";
@@ -239,7 +241,8 @@ alert('Failed because: ' + message);
 
 function uploadPhoto(imageURI) {
 	// loadshow();
-	
+	var options = { dimBackground: true }; 
+    SpinnerPlugin.activityStart("Image Uploading...", options);	 
     var options = new FileUploadOptions();
     options.fileKey="file";
     // options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
@@ -263,7 +266,9 @@ function uploadPhoto(imageURI) {
 function win(r) {
 	 // loadhide();
 	// regshow();
-	alert("An upload: Code = " + r.response);
+	
+    SpinnerPlugin.activityStop();	 
+	alert("Image Uploaded" );
     // alert("Code = " + r.responseCode);
     // alert("Response = " + r.response);
     // alert("Sent = " + r.bytesSent);
@@ -272,6 +277,7 @@ function win(r) {
 function fail(error) {
 	 // loadhide();
     // alert("Check Internet connection = " + error.code);
+	SpinnerPlugin.activityStop();	
 	 alert("Check Internet connection");
     // alert("upload error source " + error.source);
     // alert("upload error target " + error.target);
@@ -537,7 +543,10 @@ alert('Failed because: ' + message);
 
 function employeruploadPhoto(imageURI) {
 	// loadshow();
-	alert("chlraha hai");
+	// alert("chlraha hai");
+		var options = { dimBackground: true }; 
+    SpinnerPlugin.activityStart("Image Uploading...", options);	 
+	
     var options = new FileUploadOptions();
     options.fileKey="file";
     // options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
@@ -562,7 +571,9 @@ mystring = mystring.split('?').join(newchar);
 function win(r) {
 	 // loadhide();
 	// regshow();
-	alert("An upload: Code = " + r.response);
+	
+    SpinnerPlugin.activityStop();	 
+	alert("Image Uploaded ");
     // alert("Code = " + r.responseCode);
     // alert("Response = " + r.response);
     // alert("Sent = " + r.bytesSent);
@@ -571,6 +582,8 @@ function win(r) {
 function fail(error) {
 	 // loadhide();
     // alert("Check Internet connection = " + error.code);
+	
+    SpinnerPlugin.activityStop();	 
 	 alert("Check Internet connection");
     // alert("upload error source " + error.source);
     // alert("upload error target " + error.target);
@@ -579,7 +592,7 @@ function fail(error) {
 
 function employerprofile(){
               
-            side_menu_detail();
+            // side_menu_detail();
 			 // alert(email);
 		   $.ajax({
                 type: "POST",
@@ -681,7 +694,7 @@ function insertionExtraInformationSeeker(){
                     data: dataString,
                     complete: function(data){
 					var str= data;	
-					window.location = "seekerprofileView.html?email="+email+"&user_name="+user_name+"";
+					window.location = "seekerSignUpProfileView.html?email="+email+"&user_name="+user_name+"";
 				// if(str.Status == "exist")
 				// { alert("Email already exist, Try Again");}	
 				// else{
@@ -892,7 +905,7 @@ function jobseekerprofileView(){
                     data: dataString,
                     complete: function(data){
 					var str= data;	
-					window.location = "employerprofileview.html?email="+email+"&user_name="+user_name+"";
+					window.location = "employerSignUpProfileView.html?email="+email+"&user_name="+user_name+"";
 				// if(str.Status == "exist")
 				// { alert("Email already exist, Try Again");}	
 				// else{
@@ -1026,7 +1039,7 @@ function display_job_list()
 				// alert(str[i].email);
 					 	  var email =  str[i].email;
 					
-					tt = "<div class='ui-block-a' style='width:25%'><div class='ui-bar ui-bar-a'><div><img src='"+str[i].companylogo+"' id='profilePic' alt='No image' style='border-radius: 5px;  width: 100%; height: 60px;}'></div></div></div><div class='ui-block-b' style='width:50%'><div class='ui-bar ui-bar-a'><p style='color: black; font-size: 12px;text-align: left;'>"+str[i].companyposition+" </p><p style='color: #000;font-size: 14px;font-weight: 300;'><img src='img/work.png'/>&nbsp "+str[i].companyname+"</p> <img src='img/location.png'/><span style='font-size: 9px;color: gray;text-align: left;' >&nbsp" +str[i].city+", "+str[i].country+"</span></div><hr></div><div class='ui-block-c' style='width:25%'><div class='ui-bar ui-bar-a'><a  onclick='jobdetail(\""+str[i].email+"\")' ><button style='border-radius: 60px; background: deepskyblue;color:#fff; border: none; font-size: 12px;' >Detail</button></a></div></div>";
+					tt = "<div class='ui-block-a' style='width:25%'><div class='ui-bar ui-bar-a'><div><img src='"+str[i].companylogo+"' id='profilePic' alt='No image' style='border-radius: 5px;  width: 100%; height: 60px;}'></div></div></div><div class='ui-block-b' style='width:50%'><div class='ui-bar ui-bar-a'><p style='color: black; font-size: 12px;text-align: left;'>"+str[i].companyposition+" </p><p style='color: #000;font-size: 14px;font-weight: 300;'><img src='img/work.png'/>&nbsp "+str[i].companyname+"</p> <img src='img/location.png'/><span style='font-size: 9px;color: gray;text-align: left;' >&nbsp" +str[i].city+", "+str[i].country+"</span></div><hr></div><div class='ui-block-c' style='width:25%'><div class='ui-bar ui-bar-a'><a  onclick='jobdetail(\""+str[i].email+"\")' ><button style='border-radius: 60px; background: deepskyblue;color:#fff; border: none; font-size: 12px;' >&nbsp&nbspApply&nbsp&nbsp</button></a></div></div>";
 					 $("#employerProfileView").append(tt);
                     }
                 }
@@ -1048,19 +1061,22 @@ function job_seeker_list()
                 url: "http://a-nsofttech.com/webservices/seekerlist.php",
                 cache: false,
 				// data: {email: email},
-                crossDomain: true,
+                // crossDomain: true,
                 dataType: "json",
                 success: function (response) {
                      // alert("asd");
 					 str = response;
-					 email = "";
+					 // email = "";
 					var tt;
 					for (i in str)
                     {	
 				// alert(str[i].email);
-					 	  var email =  str[i].email;
-					
-					tt = "<div class='ui-block-a' style='width:25%'><div class='ui-bar ui-bar-a'><div><img src='"+str[i].image+"' id='profilePic' alt='No image' style='border-radius: 5px;  width: 100%; height: 60px;}'></div></div></div><div class='ui-block-b' style='width:50%'><div class='ui-bar ui-bar-a'><p style='color: black; font-size: 12px;text-align: left;'>"+str[i].job1+" </p><p style='color: #000;font-size: 14px;font-weight: 300;'><img src='img/work.png'/>&nbsp "+str[i].cname1+"</p> <img src='img/location.png'/><span style='font-size: 9px;color: gray;text-align: left;' >&nbsp" +str[i].city+", "+str[i].country+"</span></div><hr></div><div class='ui-block-c' style='width:25%'><div class='ui-bar ui-bar-a'><a  onclick='seekerdetail(\""+str[i].email+"\")' ><button style='border-radius: 60px; background: deepskyblue;color:#fff; border: none; font-size: 12px;' >Apply</button></a></div></div>";
+					 	  // var email =  str[i].email;
+					if(str[i].job1 == "")
+					{ str[i].job1 = "No Work Experience";
+				str[i].cname1="None"; 
+				}
+					tt = "<div class='ui-block-a' style='width:25%'><div class='ui-bar ui-bar-a'><div><img src='"+str[i].image+"' id='profilePic' alt='No image' style='border-radius: 5px;  width: 100%; height: 60px;}'></div></div></div><div class='ui-block-b' style='width:50%'><div class='ui-bar ui-bar-a'><p style='color: black; font-size: 12px;text-align: left;'>"+str[i].job1+" </p><p style='color: #000;font-size: 14px;font-weight: 300;'><img src='img/work.png'/>&nbsp "+str[i].cname1+"</p> <img src='img/location.png'/><span style='font-size: 9px;color: gray;text-align: left;' >&nbsp" +str[i].city+", "+str[i].country+"</span></div><hr></div><div class='ui-block-c' style='width:25%'><div class='ui-bar ui-bar-a'><a  onclick='seekerdetail(\""+str[i].email+"\")' ><button style='border-radius: 60px; background: deepskyblue;color:#fff; border: none; font-size: 12px;' >&nbsp&nbspDetails&nbsp&nbsp</button></a></div></div>";
 					 $("#employerProfileView").append(tt);
                     }
                 }
@@ -1074,7 +1090,7 @@ function job_seeker_list()
 //video function
 
 function videoCapture() {
-   alert("success");
+   // alert("success");
    var options = {
       limit: 1,
       duration: 30
@@ -1103,8 +1119,8 @@ function videoCapture() {
 function uploadvideo(imageURI) {
 	
 	var options = { dimBackground: true }; 
-    SpinnerPlugin.activityStart("Uploading...", options);	 
-	 navigator.notification.alert(imageURI, null, 'file path');
+    SpinnerPlugin.activityStart("Video Uploading...", options);	 
+	 // navigator.notification.alert(imageURI, null, 'file path');
    
     var options = new FileUploadOptions();
     options.fileKey="file";
@@ -1116,6 +1132,7 @@ function uploadvideo(imageURI) {
     // options.mimeType= "video/mp4";
     // <!-- imagesrc = imageURI; -->
 	 // document.getElementById("videosrc").src = imagesrc; 
+	 
 	 var video = document.getElementById('video');
 var source = document.createElement('source');
 
@@ -1124,41 +1141,41 @@ source.setAttribute('src', imageURI);
 video.appendChild(source);
 // video.play();
 	// alert("save "+imagesrc);
-	// var email =getParameterByName('email');
+	var email =getParameterByName('email');
     var params = new Object();
     options.params = params;
 	 options.chunkedMode = false;
     var ft = new FileTransfer();
 	// alert(imageURI);
 
-ft.onprogress = function(result){
-     var percent =  result.loaded / result.total * 100;
-     percent = Math.round(percent);
+// ft.onprogress = function(result){
+     // var percent =  result.loaded / result.total * 100;
+     // percent = Math.round(percent);
 	 // document.getElementById('percent').innerHTML= percent;
- //    alert('Uploading:  ' + percent + '%'); 
+    // alert('Uploading:  ' + percent + '%'); 
 
-};
-    ft.upload(imageURI, encodeURI("http://a-nsofttech.com/webservices/videoupload.php"), win, fail, options);
+// };
+    ft.upload(imageURI, encodeURI("http://a-nsofttech.com/webservices/videoupload.php?email="+email+""), vwin, vfail, options);
 }
 
-function win(r) {
+function vwin(r) {
 	 // loadhide();
 	// regshow();
 	SpinnerPlugin.activityStop();
 	// <!-- SpinnerPlugin.activityStop(); -->
-	alert("An upload: Code = " + r.response);
+	 navigator.notification.alert("Video Uploaded", null, '');
     // alert("Code = " + r.responseCode);
     // alert("Response = " + r.response);
     // alert("Sent = " + r.bytesSent);
 }
 
-function fail(error) {
-    // SpinnerPlugin.activityStop(); 
+function vfail(error) {
+    SpinnerPlugin.activityStop(); 
 	 // loadhide();
-     alert("Check Internet connection = " + error.code);
-	 <!-- alert("Check Internet connection"); -->
-     alert("upload error source " + error.source);
-    alert("upload error target " + error.target);
+   navigator.notification.alert("Something went wrong, Check Internet connection", null, 'Error');
+	 // <!-- alert("Check Internet connection"); -->
+     // alert("upload error source " + error.source);
+    // alert("upload error target " + error.target);
 }
 
 
