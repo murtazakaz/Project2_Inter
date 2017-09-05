@@ -316,7 +316,7 @@ function signin(){
 			}
 			else{
 				alert("Email or Password Incorrect : Please Retry");
-				window.location.href = "index.html";
+				// window.location.href = "index.html";
 			    }
                         
                     }
@@ -339,7 +339,7 @@ function signin(){
 			}
 			else{
 				alert("Email or Password Incorrect : Please Retry");
-				window.location.href = "index.html";
+				// window.location.href = "index.html";
 			    }
                         
                     }
