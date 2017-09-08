@@ -49,7 +49,7 @@ input[type=text]:readonly {
             <a id="_home" href="#myPanel" class="ui-btn-left" data-icon="bars" data-iconpos="notext">Menu</a>
             <input type="hidden" id="edt_mail" />
         </div>
-		 <div data-role="panel" id="myPanel" data-display="push" data-position="left" data-theme="b" style="background:#0ab9b3;position:fixed;">
+			  <div data-role="panel" id="myPanel" data-display="push" data-position="left" data-theme="b" style="background:#0ab9b3;position:fixed;">
             <center><img style="border-radius: 50px; width: 40%; height: 80px;" id="profile_pic" src="img/profile.png"/>
 			<h5 id="user_name"></h5></center>
 			<br/><br/>
@@ -61,8 +61,8 @@ input[type=text]:readonly {
 				<!-- <li><a id="go_logout" href="jobseekerprofile.html">Job Seeker Profile</a></li> -->
 				<!-- <li><a id="go_logout" href="employerprofile.html">Employeer Profile</a></li> -->
 				<!-- <li><a id="go_logout" href="jobfeed.html">Job List</a></li> -->
-				<li><a id="go_logout" href="about.html">View Us</a></li>
-				<li><a id="go_logout" href="#">Contact Us</a></li>
+				<li><a id="go_logout" onclick="cat_aboutus()">View Us</a></li>
+				<li><a id="go_logout" onclick="cat_contact_us()">Contact Us</a></li>
 				<li><a id="go_logout" href="index.html">Logout</a></li>
             </ul>
         </div>

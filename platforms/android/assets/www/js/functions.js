@@ -1205,13 +1205,21 @@ function cat_job_seeker_list(){
 	window.location = "seekerlistview.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
 	}
 function cat_aboutus(){
-	alert("Page in progress");
-	// window.location = "about.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
+	
+	window.location = "about.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
 	}
+function cat_aboutus_employer(){
+	
+	window.location = "aboutemployer.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
+	}	
 function cat_contact_us()	
-{ 	alert("Page in progress");
-	// window.location = "contact.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
+{ 	
+	 window.location = "contact.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
 	}
+function cat_contact_us_employer()	
+{ 	
+	 window.location = "contactemployer.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
+	}	
 	
 	
 
