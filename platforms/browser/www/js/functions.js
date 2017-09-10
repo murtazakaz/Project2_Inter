@@ -1180,8 +1180,196 @@ function vfail(error) {
 
 
 //video end
+//edit seeker profile 
+function editseekerprofileView(){
+              
+            side_menu_detail();
+			 
+		   $.ajax({
+                type: "POST",
+                url: "http://a-nsofttech.com/webservices/seekerprofileview.php",
+                cache: false,
+				data: {email: email},
+                crossDomain: true,
+                dataType: "json",
+                success: function (response) {
+                    var str = response;
+					
+					var tt;
+					for (i in str)
+                    {	
+						 var video = document.getElementById('video');
+							var source = document.createElement('source');
 
+							source.setAttribute('src', str[i].video);
 
+							video.appendChild(source);
+							// video.play();
+						
+						// document.getElementById('username').innerHTML=str[i].first_name+" "+str[i].last_name;
+						// document.getElementById('email').innerHTML="Email: "+str[i].email;
+						// document.getElementById('location').innerHTML=str[i].address1 +", "+ str[i].city+", "+str[i].country;
+						document.getElementById("profilePic").src =str[i].image;
+						// document.getElementById('contact').innerHTML="Phone: "+ str[i].phone_number;
+						document.getElementById("first_name").value =str[i].first_name;
+						document.getElementById("last_name").value =str[i].last_name;
+						document.getElementById("phonenumber").value =str[i].phone_number;
+					
+						document.getElementById("address1").value =str[i].address1;
+						document.getElementById("country").value =str[i].country;
+						document.getElementById("city").value =str[i].city;
+						document.getElementById("state").value =str[i].state;
+						document.getElementById("zip").value =str[i].zip;
+						//$('#register').hide();
+						document.getElementById("career_objective").value =str[i].career_objective;
+						
+						document.getElementById("jobDescription1").value =str[i].jobDescription1;
+						document.getElementById("jobDescription2").value =str[i].jobDescription2;
+						document.getElementById("jobDescription3").value =str[i].jobDescription3;
+						document.getElementById("jobDescription4").value =str[i].jobDescription4;
+						document.getElementById("educationDescription1").value =str[i].educationDescription1;
+						document.getElementById("educationDescription2").value =str[i].educationDescription2;
+						document.getElementById("educationDescription3").value =str[i].educationDescription3;
+						document.getElementById("specialQualification1").value =str[i].specialQualification1;
+						document.getElementById("specialQualification2").value =str[i].specialQualification2;
+						document.getElementById("specialQualification3").value =str[i].specialQualification3;
+						document.getElementById("specialQualification4").value =str[i].specialQualification4;
+						document.getElementById("reference1").value =str[i].reference1;
+						document.getElementById("reference2").value =str[i].reference2;
+						document.getElementById("reference3").value =str[i].reference3;
+						
+						
+						document.getElementById("jobTitle1").value =str[i].job1;
+						document.getElementById("company_name1").value =str[i].cname1;
+						document.getElementById("jobStartDate1").value =str[i].sdate1;
+						document.getElementById("jobEndDate1").value =str[i].edate1;
+						document.getElementById("jobTitle2").value =str[i].job2;
+						document.getElementById("company_name2").value =str[i].cname2;
+						document.getElementById("jobStartDate2").value =str[i].sdate2;
+						document.getElementById("jobEndDate2").value =str[i].edate2;
+						document.getElementById("jobTitle3").value =str[i].job3;
+						document.getElementById("company_name3").value =str[i].cname3;
+						document.getElementById("jobStartDate3").value =str[i].sdate3;
+						document.getElementById("jobEndDate3").value =str[i].edate3;
+						document.getElementById("jobTitle4").value =str[i].job4;
+						document.getElementById("company_name4").value =str[i].cname4;
+						document.getElementById("jobStartDate4").value =str[i].sdate4;
+						document.getElementById("jobEndDate4").value =str[i].edate4;
+						document.getElementById("educationTitle1").value =str[i].degree1;
+						document.getElementById("school_name1").value =str[i].sname1;
+						document.getElementById("educationTitle2").value =str[i].degree2;
+						document.getElementById("school_name2").value =str[i].sname2;
+						document.getElementById("educationTitle3").value =str[i].degree3;
+						document.getElementById("school_name3").value =str[i].sname3;
+                    
+                    }
+                }
+            });
+        }
+
+		
+//update seeker profile
+
+function updateSeekerProfile()
+{
+	var options = { dimBackground: true }; 
+    SpinnerPlugin.activityStart("updating profile...", options);	 
+	var email =getParameterByName('email');
+			 var fname = $("#first_name").val(); 
+             var lname = $("#last_name").val();
+             var contact = $("#phonenumber").val();
+	         var address1 = $("#address1").val();
+			 var country = $("#country").val();
+			 var city = $("#city").val();
+			 var state = $("#state").val();
+			 var zip = $("#zip").val();
+			 
+			 var career_objective = $("#career_objective").val(); 
+			 
+			 var jobTitle1 = $("#jobTitle1").val(); 
+			 var company_name1 = $("#company_name1").val(); 
+             var jobStartDate1 = $("#jobStartDate1").val();
+			 var jobEndDate1 = $("#jobEndDate1").val();
+			 var jobDescription1 = $("#jobDescription1").val();
+			 
+			 var jobTitle2 = $("#jobTitle2").val(); 
+             var company_name2 = $("#company_name2").val(); 
+             var jobStartDate2 = $("#jobStartDate2").val();
+			 var jobEndDate2 = $("#jobEndDate2").val();
+			 var jobDescription2 = $("#jobDescription2").val();
+			 
+			 var jobTitle3 = $("#jobTitle3").val(); 
+             var company_name3 = $("#company_name3").val(); 
+             var jobStartDate3 = $("#jobStartDate3").val();
+			 var jobEndDate3 = $("#jobEndDate3").val();
+			 var jobDescription3 = $("#jobDescription3").val();
+			 
+			 var jobTitle4 = $("#jobTitle4").val(); 
+             var company_name4 = $("#company_name4").val(); 
+             var jobStartDate4 = $("#jobStartDate4").val();
+			 var jobEndDate4 = $("#jobEndDate4").val();
+			 var jobDescription4 = $("#jobDescription4").val();
+             
+			
+			
+			 var educationTitle1 = $("#educationTitle1").val(); 
+             var school_name1 = $("#school_name1").val();
+			 var educationDescription1 = $("#educationDescription1").val();
+			 
+			 var educationTitle2 = $("#educationTitle2").val(); 
+              var school_name2 = $("#school_name2").val();
+			 var educationDescription2 = $("#educationDescription2").val();
+			 
+			 var educationTitle3 = $("#educationTitle3").val(); 
+             var school_name3 = $("#school_name3").val();
+			 var educationDescription3 = $("#educationDescription3").val();
+			 
+			 var specialQualification1 = $("#specialQualification1").val(); 
+             var specialQualification2 = $("#specialQualification2").val(); 
+			 var specialQualification3 = $("#specialQualification3").val(); 
+			 var specialQualification4 = $("#specialQualification4").val(); 
+			
+			 
+			 var reference1 = $("#reference1").val();
+			 var reference2 = $("#reference2").val();
+			 var reference3 = $("#reference3").val();
+			
+	 var dataString = "fname="+ fname +"&email="+ email+ "&lname="+ lname + "&address1=" + address1 +"&city=" + city + "&country=" + country + "&contact=" + contact + "&state=" + state + "&zip=" + zip +"&job1=" + jobTitle1 + "&cname1="+ company_name1 +"&sdate1="+ jobStartDate1 +"&edate1=" + jobEndDate1 + "&jobDescription1=" + jobDescription1 + "&job2=" + jobTitle2 + "&cname2="+company_name2  + "&sdate2=" + jobStartDate2 + "&edate2="+ jobEndDate2 + "&jobDescription2=" + jobDescription2 + "&job3=" + jobTitle3 + "&cname3=" + company_name3 +"&sdate3=" + jobStartDate3 +"&edate3=" + jobEndDate3 + "&jobDescription3=" + 	jobDescription3 + "&job4=" + jobTitle4 + "&cname4="+ company_name4 +"&sdate4="+ jobStartDate4 +"&edate4="+ jobEndDate4 + "&jobDescription4="+ jobDescription4 + "&degree1="+ educationTitle1 +"&sname1="+ school_name1 + "&educationDescription1=" + educationDescription1 + "&degree2="+ educationTitle2 +"&sname2="+ school_name2 + "&educationDescription2=" + educationDescription2 + "&degree3="+ educationTitle3 +"&sname3="+ school_name3 + "&educationDescription3=" + educationDescription3 + "&specialQualification1=" + specialQualification1+ "&specialQualification2=" + specialQualification2 + "&specialQualification3=" + specialQualification3+ "&specialQualification4=" + specialQualification4 + 
+               "&reference1="+ reference1 + "&reference2="+ reference2 + "&reference3="+ reference3 + "&career_objective=" + career_objective;
+			//alert(dataString);
+			  if ($.trim(fname).length > 0 && $.trim(lname).length > 0  && $.trim(email).length > 0  && $.trim(address1).length > 0 && $.trim(city).length > 0 && $.trim(country).length > 0 && $.trim(contact).length > 0 && $.trim(state).length > 0 && $.trim(zip).length > 0 &&
+			  $.trim(career_objective).length > 0) {
+			  
+			    
+                 $.ajax({
+                    url: "http://a-nsofttech.com/webservices/updateSeekerProfile.php",
+                    type: "POST",
+                    data: dataString,
+                    complete: function(data){
+					var str= data;	
+					 SpinnerPlugin.activityStop();	
+					window.location = "seekerProfileView.html?email="+email+"&user_name="+user_name+"";
+				// if(str.Status == "exist")
+				// { alert("Email already exist, Try Again");}	
+				// else{
+			   // alert("Email has been sent to " + email );
+			   // window.location.href = "verifyAccountEmployer.html?"+dataString+"&code="+str.Status+"";
+			// }     
+			
+	   
+                    }
+				   });   
+			  
+			  
+			  }
+			  else { navigator.notification.alert("Please fill all required fields", null, 'Error');}
+	
+	
+}		
+		
+		
+		
+		
 function seekerdetail(seeker_email){ 
 
 window.location = "seeker_detail.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&selected_email="+seeker_email+"&user_name="+user_name+"";
@@ -1205,14 +1393,25 @@ function cat_job_seeker_list(){
 	window.location = "seekerlistview.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
 	}
 function cat_aboutus(){
-	alert("Page in progress");
-	// window.location = "about.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
-	}
-function cat_contact_us()	
-{ 	alert("Page in progress");
-	// window.location = "contact.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
-	}
 	
+	window.location = "about.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
+	}
+function cat_aboutus_employer(){
+	
+	window.location = "aboutemployer.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
+	}	
+function cat_contact_us()	
+{ 	
+	 window.location = "contact.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
+	}
+function cat_contact_us_employer()	
+{ 	
+	 window.location = "contactemployer.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
+	}	
+function edit_seekerprofile()
+{
+	 window.location = "edit_seekerprofile.html?email="+email+"&fbpic="+fbpic+"&loginas="+loginas+"&user_name="+user_name+"";
+}	
 	
 
 	

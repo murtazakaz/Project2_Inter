@@ -14,8 +14,9 @@
         <title>BTC Card</title>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="phonegap.js"></script>
+		<script type="text/javascript" src="js/functions.js"></script>
     </head>
-    <body>
+    <body onload="side_menu_detail();">
          <div id="signup_page" data-theme="b" data-role="page">
          <div id="header_home" data-position="fixed" data-tap-toggle="false" data-role="header">
 
@@ -23,22 +24,21 @@
             <a id="_home" href="#myPanel" class="ui-btn-left" data-icon="bars" data-iconpos="notext">Menu</a>
             <input type="hidden" id="edt_mail" />
         </div>
-		  <div data-role="panel" id="myPanel" data-display="push" data-position="left" data-theme="b" style="    background:#3c78c2;">
-            <center><a href="profile.html"><img src="img/profile.png"/></a>
-			<h5>btccard@gmail.com</h5></center>
+			  <div data-role="panel" id="myPanel" data-display="push" data-position="left" data-theme="b" style="background:#0ab9b3;position:fixed;">
+            <center><img style="border-radius: 50px; width: 40%; height: 80px;" id="profile_pic" src="img/profile.png"/>
+			<h5 id="user_name"></h5></center>
 			<br/><br/>
             <ul data-role="listview" data-inset="false">
 
-                <li><a id="go_logout" href="mywallet.html" style="font-family:'Microsoft NeoGothic';">My Balance</a></li>
-				<li><a id="go_logout" href="addbtc.html" style="font-family:'Microsoft NeoGothic';">Add</a></li>
-				<li><a id="go_logout" href="send.html" style="font-family:'Microsoft NeoGothic';">Send</a></li>
-				<li><a id="go_logout" href="profile.html" style="font-family:'Microsoft NeoGothic';">My Profile</a></li>
-				<li><a id="go_logout" href="walletpincode.html" style="font-family:'Microsoft NeoGothic';">Pin</a></li>
-				<li><a id="go_logout" href="help.html" style="font-family:'Microsoft NeoGothic';">Help</a></li>
-				<li><a id="go_logout" href="about.html" style="font-family:'Microsoft NeoGothic';">About Us</a></li>
-				<li><a id="go_logout" href="contact.html" style="font-family:'Microsoft NeoGothic';">Contact Us</a></li>
-				<li><a id="go_logout" href="privacy.html" style="font-family:'Microsoft NeoGothic';">Privacy policy</a></li>
-				<li><a id="go_logout" href="index.html" style="font-family:'Microsoft NeoGothic';">Logout</a></li>
+                <li><a id="go_logout" onclick="cat_seeker_profile();" >Profile</a></li>
+				<!-- <li><a id="go_logout" href="employer.html">Employer</a></li> -->
+				<li><a id="go_logout" onclick="cat_job_list_view()">Job feed</a></li>
+				<!-- <li><a id="go_logout" href="jobseekerprofile.html">Job Seeker Profile</a></li> -->
+				<!-- <li><a id="go_logout" href="employerprofile.html">Employeer Profile</a></li> -->
+				<!-- <li><a id="go_logout" href="jobfeed.html">Job List</a></li> -->
+				<li><a id="go_logout" onclick="cat_aboutus()">View Us</a></li>
+				<li><a id="go_logout" onclick="cat_contact_us()">Contact Us</a></li>
+				<li><a id="go_logout" href="index.html">Logout</a></li>
             </ul>
         </div>
           <div id="main_signup" data-role="content">

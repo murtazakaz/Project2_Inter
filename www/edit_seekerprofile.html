@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="lib/jquery-mobile/css/jquery.mobile-1.4.0.min.css" />
+        <script type="text/javascript" src="lib/jquery-mobile/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="lib/jquery-mobile-router/js/jquery.mobile.router.min.js"></script>
+        <script type="text/javascript" src="lib/jquery-mobile/js/jquery.mobile-1.4.0.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="css/jqm-icon-pack-fa.css">
+        <title>Inter View</title>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="phonegap.js"></script>
+			<script type="text/javascript" src="js/functions.js"></script>
+		<style>
+         #item {
+    position:relative;
+    padding-top:20px;
+    display:inline-block;
+	width: 30%;
+}
+#notify-badge{
+    position: absolute;
+       right: 12px;
+    top:10px;
+    
+    text-align: center;
+    border-radius: 30px 30px 30px 30px;
+    color:white;
+    padding:5px 10px;
+    font-size:10px;
+	 width: 30%;
+
+}
+input[type=text]: {
+    background: #fff;
+}
+		
+		</style>
+    </head>
+    <body onload="editseekerprofileView()">
+         <div id="signup_page" data-theme="b" data-role="page" style="background: white;background-size:cover">
+         <div id="header_home" data-position="fixed" data-tap-toggle="false" data-role="header">
+
+            <h1>Profile</h1>
+            <a id="_home" href="#myPanel" class="ui-btn-left" data-icon="bars" data-iconpos="notext"></a>
+			 <!-- <a id="_home" onclick="edit_seekerprofile()" class="ui-btn-right" data-icon="edit" data-iconpos="notext"></a> -->
+            <input type="hidden" id="edt_mail" />
+        </div>
+			  <div data-role="panel" id="myPanel" data-display="push" data-position="left" data-theme="b" style="background:#0ab9b3;position:fixed;">
+            <center><img style="border-radius: 50px; width: 40%; height: 80px;" id="profile_pic" src="img/profile.png"/>
+			<h5 id="user_name"></h5></center>
+			<br/><br/>
+            <ul data-role="listview" data-inset="false">
+
+                <li><a id="go_logout" onclick="cat_seeker_profile();" >Profile</a></li>
+				<!-- <li><a id="go_logout" href="employer.html">Employer</a></li> -->
+				<li><a id="go_logout" onclick="cat_job_list_view()">Job feed</a></li>
+				<!-- <li><a id="go_logout" href="jobseekerprofile.html">Job Seeker Profile</a></li> -->
+				<!-- <li><a id="go_logout" href="employerprofile.html">Employeer Profile</a></li> -->
+				<!-- <li><a id="go_logout" href="jobfeed.html">Job List</a></li> -->
+				<li><a id="go_logout" onclick="cat_aboutus()">View Us</a></li>
+				<li><a id="go_logout" onclick="cat_contact_us()">Contact Us</a></li>
+				<li><a id="go_logout" href="index.html">Logout</a></li>
+            </ul>
+        </div>
+          <div id="main_signup" data-role="content">
+              
+				<center><div style="width:50%;">
+					<!-- <div  style="width:30%; text-align:center;"> -->
+					<!-- <div class="ui-bar ui-bar-a"> -->
+						
+						<center> <a onclick="uploadFromGallery()"><img id="profilePic" alt="No Image" style="border-radius: 5px;  width: 50%;}"/>
+						<img src="img/editphoto.png" style=" width: 15%; margin-top: -60%; margin-left: -8%;"/>
+						</a> </center>
+						
+					<!-- </div> -->
+					<!-- </div> -->
+					
+					<!-- <div  style="width:70%"><div class="ui-bar ui-bar-a"> -->
+      
+				   <!-- <h4 id="username">Jamie Dean</h4> -->
+				   <!-- <p style="font-size: 11px;" id="jobTitle" >Graphic - and Webdesigner at Creative Arts<p/> -->
+				   <!-- <img  src="img/location.png" />  -->
+				   <!-- <span id="location" style="font-size: 9px;color: gray;" >Newyork City, United States </span> -->
+				  <!-- <p id="contact">Phone : 1325469687</p> -->
+				  <!-- <p id="email" >Email : email@address.com</p> -->
+				  
+				   <!-- <h4 id="username"></h4> -->
+				   
+				   <!-- <p style="font-size: 11px;" id="jobTitle" ><p/> -->
+				   <!-- <img  src="img/location.png" />  -->
+				   <!-- <span id="location" style="font-size: 9px;color: gray;" ></span> -->
+				  <!-- <p id="contact"></p> -->
+				  <!-- <p id="email" ></p> -->
+      
+				<!-- </div></div> -->
+			</div> </center>
+		
+		<hr/>
+				
+			<a onclick="videoCapture()" style="text-decoration:none;"><button data-transition="pop" type="submit" id="logon" value="Login" style="background:#ed8548;">Upload Video </button></a>
+
+				<video id="video" width="100%" controls="" style="background:#000">
+                    <!-- <source src="mov_bbb.mp4" type="video/mp4"> -->
+                    <!-- <source src="mov_bbb.ogg" type="video/ogg"> -->
+                </video>		
+
+				<input type="text" class="form-control" style="background:#fff;color:#000;" placeholder="Youtube Link Here">
+				
+			<!---div class="ui-grid-b">
+					<div class="ui-block-a"><div class="ui-bar ui-bar-a">
+						
+							<img src="img/Facebook.png"> Facebook
+						
+					</div></div>
+					
+					<div class="ui-block-b"><div class="ui-bar ui-bar-a">
+						
+							<img src="img/twitter.png"> Twitter
+						
+					</div></div>
+					
+					<div class="ui-block-c"><div class="ui-bar ui-bar-a">
+						
+							<img src="img/google.png"> Google
+						
+					</div></div>
+			</div--->
+		
+			<br/>	
+			<div class="panel panel-default" style="background:#0ab9b3">
+				<div class="panel-body" >
+					<h4>Personal Details</h4>			
+			<fieldset data-role="fieldcontain">
+						<input type="text" class="inputfield" style="color: black !important;background-color: white;" id="first_name" placeholder="First Name">
+					</fieldset>
+					<fieldset data-role="fieldcontain">
+						<input type="text" class="inputfield" style="color: black !important;background-color: white;"id="last_name" placeholder="Last Name">
+					</fieldset>
+					<fieldset data-role="fieldcontain">
+						<input type="text" class="inputfield" style="color: black !important;background-color: white;" id="phonenumber" placeholder="Phone Number" >
+					</fieldset>
+					<fieldset data-role="fieldcontain">
+						<input type="text" class="inputfield" style="color: black !important;background-color: white;" id="address1" placeholder="Address 1" >
+					</fieldset>	
+			<fieldset data-role="fieldcontain">
+						<input type="text" class="inputfield" style="color: black !important;background-color: white;" id="country"  placeholder="Country">
+					</fieldset>
+					<fieldset data-role="fieldcontain">
+						<input type="text" class="inputfield" style="color: black !important;background-color: white;" id="city" placeholder="City">
+					</fieldset>
+					<fieldset data-role="fieldcontain">
+						<input type="text" class="inputfield" style="color: black !important;background-color: white;" id="state" placeholder="State">
+					</fieldset>
+					<fieldset data-role="fieldcontain">
+						<input type="number" class="inputfield" style="color: black !important;background-color: white;" id="zip" placeholder="Zip">
+					</fieldset>		
+			</div>
+			</div>				
+			<div class="panel panel-default" style="background:#0ab9b3">
+				<div class="panel-body">
+					<h4>Career Objective</h4>
+					<input id="career_objective" style="color:#000; background-color: white;" placeholder="Description" ></input>
+				</div>
+			</div>	
+			
+			<br/>		
+					
+			<div class="panel panel-default" style="background:#0ab9b3">
+				<div class="panel-body">
+					<h4>Work History</h4>
+					<input type="text" class="form-control" id="jobTitle1" style="background:#fff ; color:#000; " placeholder="Title1">
+					<input type="text" class="form-control" id="company_name1" style="background:#fff;color:#000" placeholder="Company Name 1" >
+					<input type="text" class="form-control" id="jobStartDate1" style="background:#fff;color:#000" placeholder="2008-11-21" >
+					<input type="text" class="form-control" id="jobEndDate1" style="background:#fff;color:#000" placeholder="2008-11-21" >
+					<input class="form-control" id="jobDescription1" rows="3" style="color:#000;background-color: white;" placeholder="Description"></input>
+					
+					<hr/>
+					
+					<input type="text" class="form-control" id="jobTitle2" style="background:#fff;color:#000" placeholder="Title 2" >
+					<input type="text" class="form-control" id="company_name2" style="background:#fff;color:#000" placeholder="Company Name 2" >
+					<input type="text" class="form-control" id="jobStartDate2" style="background:#fff;color:#000" placeholder="2008-11-21" >
+					<input type="text" class="form-control" id="jobEndDate2" style="background:#fff;color:#000" placeholder="2008-11-21" >
+					<input class="form-control" rows="3" id="jobDescription2" style="color:#000;background-color: white;" placeholder="Description"></input>
+					
+					<hr/>
+					
+					<input type="text" class="form-control" id="jobTitle3" style="background:#fff;color:#000" placeholder="Title 3">
+					<input type="text" class="form-control" id="company_name3" style="background:#fff;color:#000" placeholder="Company Name 3">
+					<input type="text" class="form-control" id="jobStartDate3" style="background:#fff;color:#000" placeholder="2008-11-21" >
+					<input type="text" class="form-control" id="jobEndDate3" style="background:#fff;color:#000" placeholder="2008-11-21" >
+					<input class="form-control" rows="3" id="jobDescription3" style="color:#000;background-color: white;" placeholder="Description"></input>
+					
+					<hr/>
+					
+					<input type="text" class="form-control" id="jobTitle4" style="background:#fff;color:#000" placeholder="Title 4">
+					<input type="text" class="form-control" id="company_name4" style="background:#fff;color:#000" placeholder="Company Name 4">
+					<input type="text" class="form-control" id="jobStartDate4" style="background:#fff;color:#000" placeholder="2008-11-21" >
+					<input type="text" class="form-control" id="jobEndDate4" style="background:#fff;color:#000" placeholder="2008-11-21" >
+					<input class="form-control" rows="3" id="jobDescription4" style="color:#000;background-color: white;" placeholder="Description"></input>
+				</div>
+			</div>
+
+			<div class="panel panel-default" style="background:#0ab9b3">
+				<div class="panel-body">
+					<h4>Education Background</h4>
+					<input type="text" class="form-control" id="educationTitle1" style="background:#fff;color:#000" placeholder="BA @ Texas A&M-Commerce">
+					<input type="text" class="form-control" id="school_name1" style="background:#fff;color:#000" placeholder="Institute Name">
+					<input class="form-control" rows="3" id="educationDescription1" style="color:#000;background-color: white;" placeholder="Description"></input>
+					
+					<hr/>
+					
+					<input type="text" class="form-control" id="educationTitle2" style="background:#fff;color:#000" placeholder="Title 2">
+					<input type="text" class="form-control" id="school_name2" style="background:#fff;color:#000" placeholder="Institute Name">
+					<input class="form-control" id="educationDescription2" rows="3" style="color:#000;background-color: white;" placeholder="Description"></input>
+					
+					<hr/>
+					
+					<input type="text" class="form-control" id="educationTitle3" style="background:#fff;color:#000" placeholder="Title 3">
+					<input type="text" class="form-control" id="school_name3" style="background:#fff;color:#000" placeholder="Institute Name">
+					<input class="form-control" rows="3" id="educationDescription3" style="color:#000;background-color: white;" placeholder="Description"></input>
+					
+					<hr/>
+					
+					
+				</div>
+			</div>
+					
+			<div class="panel panel-default" style="background:#0ab9b3">
+				<div class="panel-body">
+					<h4>Special Qualification</h4>
+					<input type="text" class="form-control" id="specialQualification1" style="background:#fff;color:#000" placeholder="5 years+ experience designing and building products In the Design & IT industry.">
+					<input type="text" class="form-control" id="specialQualification2" style="background:#fff;color:#000" placeholder="Passion for people-centered design, solid intuition.">
+					<input type="text" class="form-control" id="specialQualification3"  style="background:#fff;color:#000" placeholder="Skilled at any Kind Design Tools.">
+					<input type="text" class="form-control" id="specialQualification4" style="background:#fff;color:#000" placeholder="Hard Worker & Quick Lerner.">
+				</div>
+			</div>	
+
+			<div class="panel panel-default" style="background:#0ab9b3">
+				<div class="panel-body">
+					<h4>References</h4>
+					<input type="text" class="form-control" id="reference1" style="background:#fff;color:#000" placeholder="">
+					<input type="text" class="form-control" id="reference2" style="background:#fff;color:#000" placeholder="">
+					<input type="text" class="form-control" id="reference3" style="background:#fff;color:#000" placeholder="">
+				</div>
+			</div>	
+
+		<a onclick="updateSeekerProfile()" style="text-decoration:none;"><button data-transition="pop" type="submit" id="logon" value="Login" style="background:#ed8548;">Update Profile</button></a>	 
+				
+						
+		
+          </div>
+        </div>
+    </body>
+</html>
