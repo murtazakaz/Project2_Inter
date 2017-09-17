@@ -1415,3 +1415,124 @@ function edit_seekerprofile()
 	
 
 	
+function editemployerprofileView(){
+              
+            side_menu_detail();
+			 
+		   $.ajax({
+                type: "POST",
+                url: "http://a-nsofttech.com/webservices/seekerprofileview.php",
+                cache: false,
+				data: {email: email},
+                crossDomain: true,
+                dataType: "json",
+                success: function (response) {
+                    var str = response;
+					
+					var tt;
+					for (i in str)
+                    {	
+						
+						document.getElementById("profilePic").src =str[i].image;
+						// document.getElementById('contact').innerHTML="Phone: "+ str[i].phone_number;
+						document.getElementById("companyname").value =str[i].first_name;
+						document.getElementById("companyposition").value =str[i].first_name;
+						document.getElementById("companylocation").value =str[i].last_name;
+						document.getElementById("companycontact").value =str[i].phone_number;
+						
+						document.getElementById("jobTitle1").value =str[i].jobDescription1;
+						document.getElementById("job_salary1").value =str[i].jobDescription2;
+						document.getElementById("job_description1").value =str[i].jobDescription3;
+						
+						document.getElementById("jobTitle2").value =str[i].jobDescription1;
+						document.getElementById("job_salary2").value =str[i].jobDescription2;
+						document.getElementById("job_description2").value =str[i].jobDescription3;
+						
+						document.getElementById("jobTitle3").value =str[i].jobDescription1;
+						document.getElementById("job_salary3").value =str[i].jobDescription2;
+						document.getElementById("job_description3").value =str[i].jobDescription3;
+						
+						document.getElementById("jobTitle4").value =str[i].jobDescription1;
+						document.getElementById("job_salary4").value =str[i].jobDescription2;
+						document.getElementById("job_description4").value =str[i].jobDescription3;
+						
+						document.getElementById("fblink").value =str[i].jobDescription1;
+						document.getElementById("twitterlink").value =str[i].jobDescription2;
+						document.getElementById("googlelink").value =str[i].jobDescription3;
+						
+						
+						
+					
+                    
+                    }
+                }
+            });
+        }
+
+		
+//update seeker profile
+
+function updateEmployerProfile()
+{
+	var options = { dimBackground: true }; 
+    SpinnerPlugin.activityStart("updating profile...", options);	 
+	var email =getParameterByName('email');
+	         var companyname = $("#companyname").val();
+			 var companyposition = $("#companyposition").val(); 
+             var companylocation = $("#companylocation").val();
+             var companycontact = $("#companycontact").val();
+	       
+			 var jobTitle1 = $("#jobTitle1").val(); 
+			 var job_salary1 = $("#job_salary1").val(); 
+             var job_description1 = $("#job_description1").val();
+			
+			 var jobTitle2 = $("#jobTitle2").val(); 
+			 var job_salary2 = $("#job_salary2").val(); 
+             var job_description2 = $("#job_description2").val();
+			
+			 var jobTitle3 = $("#jobTitle3").val(); 
+			 var job_salary3 = $("#job_salary3").val(); 
+             var job_description3 = $("#job_description3").val();
+			
+			 var jobTitle4 = $("#jobTitle4").val(); 
+			 var job_salary4 = $("#job_salary4").val(); 
+             var job_description4 = $("#job_description4").val();
+			
+			
+			
+			 
+			 var fblink = $("#fblink").val();
+			 var twitterlink = $("#twitterlink").val();
+			 var googlelink = $("#googlelink").val();
+			
+	 var dataString = "companyname="+ companyname +"&email="+ email+ "&companyposition="+ companyposition + "&companylocation=" + companylocation +"&jobTitle1=" + jobTitle1 + "&job_salary1=" + job_salary1 + "&job_description1=" + job_description1 + "&jobTitle2=" + jobTitle2 + "&job_salary2=" + job_salary2 +"&job_description2=" + job_description2 + "&jobTitle3="+ jobTitle3 +"&job_salary3="+ job_salary3 +"&job_description3=" + job_description3 + "&jobTitle4=" + jobTitle4 + "&job_salary4=" + job_salary4 + "&job_description4="+job_description4  + "&fblink=" + fblink + "&twitterlink="+ twitterlink + "&googlelink=" + googlelink; 
+			//alert(dataString);
+			  if ($.trim(companyname).length > 0 && $.trim(companyposition).length > 0  && $.trim(email).length > 0  && $.trim(companylocation).length > 0) {
+			  
+			    
+                 $.ajax({
+                    url: "http://a-nsofttech.com/webservices/updateSeekerProfile.php",
+                    type: "POST",
+                    data: dataString,
+                    complete: function(data){
+					var str= data;	
+					 SpinnerPlugin.activityStop();	
+					window.location = "seekerProfileView.html?email="+email+"&user_name="+user_name+"";
+				// if(str.Status == "exist")
+				// { alert("Email already exist, Try Again");}	
+				// else{
+			   // alert("Email has been sent to " + email );
+			   // window.location.href = "verifyAccountEmployer.html?"+dataString+"&code="+str.Status+"";
+			// }     
+			
+	   
+                    }
+				   });   
+			  
+			  
+			  }
+			  else { navigator.notification.alert("Please fill all required fields", null, 'Error');}
+	
+	
+}	
+	
